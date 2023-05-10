@@ -10,8 +10,14 @@ abstract class SearchService extends ChopperService {
       _$SearchService(client);
 
   @Get(path: "/movie")
-  Future<Response<MoviesResponse>> searchMovie(@Query() String key);
+  Future<Response<MoviesResponse>> searchMovie(
+    @Query() int page,
+    @Query() String key,
+  );
 
   @Get(path: "/tv")
-  Future<Response<TvsResponse>> searchTv(@Query() String key);
+  Future<Response<TvsResponse>> searchTv(
+    @Query() int page,
+    @Query() String key,
+  );
 }

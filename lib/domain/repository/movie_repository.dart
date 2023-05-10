@@ -12,5 +12,6 @@ abstract class MovieRepository {
 
   Future<Either<ResponseError, MovieDetailResponse>> getDetail(int id);
 
-  Future<Either<ResponseError, MoviesResponse>> searchMovie(String key);
+  Future<Either<ResponseError, MoviesResponse>> searchMovie(
+      int page, String key);
 }

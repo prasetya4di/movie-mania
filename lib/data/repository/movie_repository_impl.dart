@@ -42,8 +42,9 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<Either<ResponseError, MoviesResponse>> searchMovie(String key) async {
-    final response = await _searchService.searchMovie(key);
+  Future<Either<ResponseError, MoviesResponse>> searchMovie(
+      int page, String key) async {
+    final response = await _searchService.searchMovie(page, key);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }

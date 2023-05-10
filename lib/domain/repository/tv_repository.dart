@@ -12,5 +12,5 @@ abstract class TvRepository {
 
   Future<Either<ResponseError, TvDetailResponse>> getDetail(int id);
 
-  Future<Either<ResponseError, TvsResponse>> searchTv(String key);
+  Future<Either<ResponseError, TvsResponse>> searchTv(int page, String key);
 }

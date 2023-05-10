@@ -41,8 +41,9 @@ class TvRepositoryImpl implements TvRepository {
   }
 
   @override
-  Future<Either<ResponseError, TvsResponse>> searchTv(String key) async {
-    final response = await _searchService.searchTv(key);
+  Future<Either<ResponseError, TvsResponse>> searchTv(
+      int page, String key) async {
+    final response = await _searchService.searchTv(page, key);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }
