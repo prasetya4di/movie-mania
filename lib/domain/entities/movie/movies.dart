@@ -7,7 +7,7 @@ class Movies {
 
   Movies(this.totalPages, this.data);
 
-  factory Movies.fromPopularMovieResponse(MoviesResponse response) => Movies(
+  factory Movies.fromResponse(MoviesResponse response) => Movies(
         response.totalPages,
         response.results.map((e) => MovieItem.fromResponse(e)).toList(),
       );

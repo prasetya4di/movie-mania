@@ -6,7 +6,7 @@ import 'package:movie_mania/data/source/network/response/response_error.dart';
 abstract class MovieRepository {
   Future<Either<ResponseError, MoviesResponse>> getNowPlaying();
 
-  Future<Either<ResponseError, MoviesResponse>> getPopularMovie();
+  Future<Either<ResponseError, MoviesResponse>> getPopularMovie(int page);
 
   Future<Either<ResponseError, MoviesResponse>> getMovieRecommendation(int id);
 
