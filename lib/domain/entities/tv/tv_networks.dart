@@ -1,8 +1,16 @@
-class TvNetworks {
-  late String name;
-  late int id;
-  dynamic logoPath;
-  late String originCountry;
+import 'package:movie_mania/data/source/network/response/tv/tv_detail_response.dart';
 
-  TvNetworks();
+class TvNetworks {
+  final String name;
+  final int id;
+  dynamic logoPath;
+  final String originCountry;
+
+  TvNetworks(this.name, this.id, this.originCountry);
+
+  factory TvNetworks.fromResponse(TvDetailResponseNetworks res) => TvNetworks(
+        res.name,
+        res.id,
+        res.originCountry,
+      );
 }
