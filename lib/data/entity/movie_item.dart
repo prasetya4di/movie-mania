@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:movie_mania/generated/json/base/json_field.dart';
-import 'package:movie_mania/generated/json/movie_item_entity.g.dart';
+import 'package:movie_mania/generated/json/movie_item.g.dart';
 
 @JsonSerializable()
 class MovieItem {
@@ -33,9 +33,9 @@ class MovieItem {
   MovieItem();
 
   factory MovieItem.fromJson(Map<String, dynamic> json) =>
-      $MovieItemEntityFromJson(json);
+      $MovieItemFromJson(json);
 
-  Map<String, dynamic> toJson() => $MovieItemEntityToJson(this);
+  Map<String, dynamic> toJson() => $MovieItemToJson(this);
 
   @override
   String toString() {
