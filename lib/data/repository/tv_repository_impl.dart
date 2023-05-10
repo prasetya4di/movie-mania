@@ -20,22 +20,23 @@ class TvRepositoryImpl implements TvRepository {
   }
 
   @override
-  Future<Either<ResponseError, TvsResponse>> getPopularTv() async {
-    final response = await _tvService.getPopularTv();
+  Future<Either<ResponseError, TvsResponse>> getPopularTv(int page) async {
+    final response = await _tvService.getPopularTv(page);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }
 
   @override
-  Future<Either<ResponseError, TvsResponse>> getTvOnTheAir() async {
-    final response = await _tvService.getTvOnTheAir();
+  Future<Either<ResponseError, TvsResponse>> getTvOnTheAir(int page) async {
+    final response = await _tvService.getTvOnTheAir(page);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }
 
   @override
-  Future<Either<ResponseError, TvsResponse>> getTvRecommendation(int id) async {
-    final response = await _tvService.getTvRecommendation(id);
+  Future<Either<ResponseError, TvsResponse>> getTvRecommendation(
+      int id, int page) async {
+    final response = await _tvService.getTvRecommendation(id, page);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }

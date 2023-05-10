@@ -8,7 +8,8 @@ abstract class MovieRepository {
 
   Future<Either<ResponseError, MoviesResponse>> getPopularMovie(int page);
 
-  Future<Either<ResponseError, MoviesResponse>> getMovieRecommendation(int id);
+  Future<Either<ResponseError, MoviesResponse>> getMovieRecommendation(
+      int id, int page);
 
   Future<Either<ResponseError, MovieDetailResponse>> getDetail(int id);
 
