@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:movie_mania/data/entity/movie_genres.dart';
-import 'package:movie_mania/data/entity/movie_production_companies.dart';
-import 'package:movie_mania/data/entity/movie_production_countries.dart';
-import 'package:movie_mania/data/entity/movie_spoken_languages.dart';
+import 'package:movie_mania/data/entity/movie/movie_genres.dart';
+import 'package:movie_mania/data/entity/movie/movie_production_companies.dart';
+import 'package:movie_mania/data/entity/movie/movie_production_countries.dart';
+import 'package:movie_mania/data/entity/movie/movie_spoken_languages.dart';
 import 'package:movie_mania/generated/json/base/json_field.dart';
 import 'package:movie_mania/generated/json/movie.g.dart';
 
