@@ -7,7 +7,7 @@ class Tvs {
 
   Tvs(this.totalPages, this.data);
 
-  factory Tvs.fromPopularTvResponse(TvsResponse response) => Tvs(
+  factory Tvs.fromTvResponse(TvsResponse response) => Tvs(
         response.totalPages,
         response.results.map((e) => TvItem.fromResponse(e)).toList(),
       );
