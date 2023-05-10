@@ -1,6 +1,19 @@
+import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_mania/data/source/network/chopper_factory.dart';
+import 'package:movie_mania/data/source/network/response/movie/movie_popular_response.dart';
+import 'package:movie_mania/data/source/network/service/movie_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  ChopperClient client = ChopperFactory.create();
+
+  Response<MoviePopularResponse> response =
+      await client.getService<MovieService>().getPopularMovie();
+
+  print(response.isSuccessful);
+
   runApp(const MyApp());
 }
 
