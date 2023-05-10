@@ -1,5 +1,4 @@
 import 'package:either_dart/either.dart';
-import 'package:movie_mania/data/repository/tv_repository.dart';
 import 'package:movie_mania/data/source/network/response/response_error.dart';
 import 'package:movie_mania/data/source/network/response/tv/tv_on_the_air_response.dart';
 import 'package:movie_mania/data/source/network/response/tv/tv_popular_response.dart';
@@ -7,7 +6,8 @@ import 'package:movie_mania/data/source/network/response/tv/tv_recommendation_re
 import 'package:movie_mania/data/source/network/response/tv/tv_search_response.dart';
 import 'package:movie_mania/data/source/network/service/search_service.dart';
 import 'package:movie_mania/data/source/network/service/tv_service.dart';
-import 'package:movie_mania/domain/entity/tv/tv.dart';
+import 'package:movie_mania/domain/entities/tv/tv.dart';
+import 'package:movie_mania/domain/repository/tv_repository.dart';
 
 class TvRepositoryImpl implements TvRepository {
   final TvService _tvService;

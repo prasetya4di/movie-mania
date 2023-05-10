@@ -1,7 +1,7 @@
-import 'package:movie_mania/domain/entity/movie/movie_genres.dart';
-import 'package:movie_mania/domain/entity/movie/movie_production_companies.dart';
-import 'package:movie_mania/domain/entity/movie/movie_production_countries.dart';
-import 'package:movie_mania/domain/entity/movie/movie_spoken_languages.dart';
+import 'package:movie_mania/domain/entities/movie/movie_genres.dart';
+import 'package:movie_mania/domain/entities/movie/movie_production_companies.dart';
+import 'package:movie_mania/domain/entities/movie/movie_production_countries.dart';
+import 'package:movie_mania/domain/entities/movie/movie_spoken_languages.dart';
 
 class Movie {
   late bool adult;

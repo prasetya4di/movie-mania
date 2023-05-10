@@ -4,7 +4,7 @@ import 'package:movie_mania/data/source/network/response/tv/tv_on_the_air_respon
 import 'package:movie_mania/data/source/network/response/tv/tv_popular_response.dart';
 import 'package:movie_mania/data/source/network/response/tv/tv_recommendation_response.dart';
 import 'package:movie_mania/data/source/network/response/tv/tv_search_response.dart';
-import 'package:movie_mania/domain/entity/tv/tv.dart';
+import 'package:movie_mania/domain/entities/tv/tv.dart';
 
 abstract class TvRepository {
   Future<Either<ResponseError, TvOnTheAirResponse>> getTvOnTheAir();

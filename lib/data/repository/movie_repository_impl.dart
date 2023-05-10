@@ -1,5 +1,4 @@
 import 'package:either_dart/either.dart';
-import 'package:movie_mania/data/repository/movie_repository.dart';
 import 'package:movie_mania/data/source/network/response/movie/movie_popular_response.dart';
 import 'package:movie_mania/data/source/network/response/movie/movie_recommendation_response.dart';
 import 'package:movie_mania/data/source/network/response/movie/movie_search_response.dart';
@@ -7,7 +6,8 @@ import 'package:movie_mania/data/source/network/response/movie/now_playing_respo
 import 'package:movie_mania/data/source/network/response/response_error.dart';
 import 'package:movie_mania/data/source/network/service/movie_service.dart';
 import 'package:movie_mania/data/source/network/service/search_service.dart';
-import 'package:movie_mania/domain/entity/movie/movie.dart';
+import 'package:movie_mania/domain/entities/movie/movie.dart';
+import 'package:movie_mania/domain/repository/movie_repository.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
   final MovieService _movieService;

@@ -1,10 +1,10 @@
-import 'package:movie_mania/domain/entity/tv/tv_genres.dart';
-import 'package:movie_mania/domain/entity/tv/tv_last_episode_to_air.dart';
-import 'package:movie_mania/domain/entity/tv/tv_networks.dart';
-import 'package:movie_mania/domain/entity/tv/tv_next_episode_to_air.dart';
-import 'package:movie_mania/domain/entity/tv/tv_production_countries.dart';
-import 'package:movie_mania/domain/entity/tv/tv_seasons.dart';
-import 'package:movie_mania/domain/entity/tv/tv_spoken_languages.dart';
+import 'package:movie_mania/domain/entities/tv/tv_genres.dart';
+import 'package:movie_mania/domain/entities/tv/tv_last_episode_to_air.dart';
+import 'package:movie_mania/domain/entities/tv/tv_networks.dart';
+import 'package:movie_mania/domain/entities/tv/tv_next_episode_to_air.dart';
+import 'package:movie_mania/domain/entities/tv/tv_production_countries.dart';
+import 'package:movie_mania/domain/entities/tv/tv_seasons.dart';
+import 'package:movie_mania/domain/entities/tv/tv_spoken_languages.dart';
 
 class Tv {
   late String backdropPath;

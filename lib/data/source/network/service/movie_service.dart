@@ -2,7 +2,7 @@ import 'package:chopper/chopper.dart';
 import 'package:movie_mania/data/source/network/response/movie/movie_popular_response.dart';
 import 'package:movie_mania/data/source/network/response/movie/movie_recommendation_response.dart';
 import 'package:movie_mania/data/source/network/response/movie/now_playing_response.dart';
-import 'package:movie_mania/domain/entity/movie/movie.dart';
+import 'package:movie_mania/domain/entities/movie/movie.dart';
 
 part 'movie_service.chopper.dart';
 
