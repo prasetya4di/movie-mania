@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:movie_mania/generated/json/base/json_field.dart';
-import 'package:movie_mania/generated/json/response_error_entity.g.dart';
+import 'package:movie_mania/generated/json/response_error.g.dart';
 
 @JsonSerializable()
 class ResponseError {
@@ -14,9 +14,9 @@ class ResponseError {
   ResponseError();
 
   factory ResponseError.fromJson(Map<String, dynamic> json) =>
-      $ResponseErrorEntityFromJson(json);
+      $ResponseErrorFromJson(json);
 
-  Map<String, dynamic> toJson() => $ResponseErrorEntityToJson(this);
+  Map<String, dynamic> toJson() => $ResponseErrorToJson(this);
 
   @override
   String toString() {
