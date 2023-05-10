@@ -1,8 +1,5 @@
 import 'package:either_dart/either.dart';
-import 'package:movie_mania/data/source/network/response/movie/movie_popular_response.dart';
-import 'package:movie_mania/data/source/network/response/movie/movie_recommendation_response.dart';
-import 'package:movie_mania/data/source/network/response/movie/movie_search_response.dart';
-import 'package:movie_mania/data/source/network/response/movie/now_playing_response.dart';
+import 'package:movie_mania/data/source/network/response/movie/movies_response.dart';
 import 'package:movie_mania/data/source/network/response/response_error.dart';
 import 'package:movie_mania/data/source/network/service/movie_service.dart';
 import 'package:movie_mania/data/source/network/service/search_service.dart';
@@ -23,30 +20,28 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<Either<ResponseError, MovieRecommendationResponse>>
-      getMovieRecommendation(int id) async {
+  Future<Either<ResponseError, MoviesResponse>> getMovieRecommendation(int id) async {
     final response = await _movieService.getMovieRecommendation(id);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }
 
   @override
-  Future<Either<ResponseError, NowPlayingResponse>> getNowPlaying() async {
-    final response = await _movieService.getNowPlaying();
+  Future<Either<ResponseError, MoviesResponse>> getNowPlaying() async {
+    final response = await _movieService.getNowPlaying(0);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }
 
   @override
-  Future<Either<ResponseError, MoviePopularResponse>> getPopularMovie() async {
-    final response = await _movieService.getPopularMovie();
+  Future<Either<ResponseError, MoviesResponse>> getPopularMovie() async {
+    final response = await _movieService.getPopularMovie(0);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }
 
   @override
-  Future<Either<ResponseError, MovieSearchResponse>> searchMovie(
-      String key) async {
+  Future<Either<ResponseError, MoviesResponse>> searchMovie(String key) async {
     final response = await _searchService.searchMovie(key);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);

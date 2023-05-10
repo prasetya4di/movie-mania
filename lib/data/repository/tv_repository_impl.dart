@@ -1,9 +1,6 @@
 import 'package:either_dart/either.dart';
 import 'package:movie_mania/data/source/network/response/response_error.dart';
-import 'package:movie_mania/data/source/network/response/tv/tv_on_the_air_response.dart';
-import 'package:movie_mania/data/source/network/response/tv/tv_popular_response.dart';
-import 'package:movie_mania/data/source/network/response/tv/tv_recommendation_response.dart';
-import 'package:movie_mania/data/source/network/response/tv/tv_search_response.dart';
+import 'package:movie_mania/data/source/network/response/tv/tvs_response.dart';
 import 'package:movie_mania/data/source/network/service/search_service.dart';
 import 'package:movie_mania/data/source/network/service/tv_service.dart';
 import 'package:movie_mania/domain/entities/tv/tv.dart';
@@ -23,29 +20,28 @@ class TvRepositoryImpl implements TvRepository {
   }
 
   @override
-  Future<Either<ResponseError, TvPopularResponse>> getPopularTv() async {
+  Future<Either<ResponseError, TvsResponse>> getPopularTv() async {
     final response = await _tvService.getPopularTv();
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }
 
   @override
-  Future<Either<ResponseError, TvOnTheAirResponse>> getTvOnTheAir() async {
+  Future<Either<ResponseError, TvsResponse>> getTvOnTheAir() async {
     final response = await _tvService.getTvOnTheAir();
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }
 
   @override
-  Future<Either<ResponseError, TvRecommendationResponse>> getTvRecommendation(
-      int id) async {
+  Future<Either<ResponseError, TvsResponse>> getTvRecommendation(int id) async {
     final response = await _tvService.getTvRecommendation(id);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
   }
 
   @override
-  Future<Either<ResponseError, TvSearchResponse>> searchTv(String key) async {
+  Future<Either<ResponseError, TvsResponse>> searchTv(String key) async {
     final response = await _searchService.searchTv(key);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);

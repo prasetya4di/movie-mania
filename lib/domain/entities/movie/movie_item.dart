@@ -1,19 +1,53 @@
-class MovieItem {
-  late bool adult;
-  late String backdropPath;
-  late List<int> genreIds;
-  late int id;
-  late String mediaType;
-  late String title;
-  late String originalLanguage;
-  late String originalTitle;
-  late String overview;
-  late double popularity;
-  late String posterPath;
-  late String releaseDate;
-  late bool video;
-  late double voteAverage;
-  late int voteCount;
+import 'package:movie_mania/data/source/network/response/movie/movie_item_response.dart';
 
-  MovieItem();
+class MovieItem {
+  final bool adult;
+  final String backdropPath;
+  final List<int> genreIds;
+  final int id;
+  final String mediaType;
+  final String title;
+  final String originalLanguage;
+  final String originalTitle;
+  final String overview;
+  final double popularity;
+  final String posterPath;
+  final String releaseDate;
+  final bool video;
+  final double voteAverage;
+  final int voteCount;
+
+  MovieItem(
+      this.adult,
+      this.backdropPath,
+      this.genreIds,
+      this.id,
+      this.mediaType,
+      this.title,
+      this.originalLanguage,
+      this.originalTitle,
+      this.overview,
+      this.popularity,
+      this.posterPath,
+      this.releaseDate,
+      this.video,
+      this.voteAverage,
+      this.voteCount);
+
+  factory MovieItem.fromResponse(MovieItemResponse response) => MovieItem(
+      response.adult,
+      response.backdropPath,
+      response.genreIds,
+      response.id,
+      response.mediaType,
+      response.title,
+      response.originalLanguage,
+      response.originalTitle,
+      response.overview,
+      response.popularity,
+      response.posterPath,
+      response.releaseDate,
+      response.video,
+      response.voteAverage,
+      response.voteCount);
 }

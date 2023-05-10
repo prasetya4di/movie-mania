@@ -1,6 +1,6 @@
 import 'package:chopper/chopper.dart';
-import 'package:movie_mania/data/source/network/response/movie/movie_search_response.dart';
-import 'package:movie_mania/data/source/network/response/tv/tv_search_response.dart';
+import 'package:movie_mania/data/source/network/response/movie/movies_response.dart';
+import 'package:movie_mania/data/source/network/response/tv/tvs_response.dart';
 
 part 'search_service.chopper.dart';
 
@@ -10,8 +10,8 @@ abstract class SearchService extends ChopperService {
       _$SearchService(client);
 
   @Get(path: "/movie")
-  Future<Response<MovieSearchResponse>> searchMovie(@Query() String key);
+  Future<Response<MoviesResponse>> searchMovie(@Query() String key);
 
   @Get(path: "/tv")
-  Future<Response<TvSearchResponse>> searchTv(@Query() String key);
+  Future<Response<TvsResponse>> searchTv(@Query() String key);
 }

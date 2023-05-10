@@ -1,7 +1,5 @@
 import 'package:chopper/chopper.dart';
-import 'package:movie_mania/data/source/network/response/movie/movie_popular_response.dart';
-import 'package:movie_mania/data/source/network/response/movie/movie_recommendation_response.dart';
-import 'package:movie_mania/data/source/network/response/movie/now_playing_response.dart';
+import 'package:movie_mania/data/source/network/response/movie/movies_response.dart';
 import 'package:movie_mania/domain/entities/movie/movie.dart';
 
 part 'movie_service.chopper.dart';
@@ -11,13 +9,13 @@ abstract class MovieService extends ChopperService {
   static MovieService create([ChopperClient? client]) => _$MovieService(client);
 
   @Get(path: "/now_playing")
-  Future<Response<NowPlayingResponse>> getNowPlaying();
+  Future<Response<MoviesResponse>> getNowPlaying(@Query() int page);
 
   @Get(path: "/popular")
-  Future<Response<MoviePopularResponse>> getPopularMovie();
+  Future<Response<MoviesResponse>> getPopularMovie(@Query() int page);
 
   @Get(path: "/{movie_id}/recommendations")
-  Future<Response<MovieRecommendationResponse>> getMovieRecommendation(
+  Future<Response<MoviesResponse>> getMovieRecommendation(
       @Path("movie_id") int movieId);
 
   @Get(path: "/{movie_id}")

@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:movie_mania/data/source/network/response/movie/movie_item_response.dart';
 import 'package:movie_mania/generated/json/base/json_field.dart';
-import 'package:movie_mania/generated/json/movie_recommendation_response.g.dart';
+import 'package:movie_mania/generated/json/movies_response.g.dart';
 
 @JsonSerializable()
-class MovieRecommendationResponse {
+class MoviesResponse {
   late int page;
   late List<MovieItemResponse> results;
   @JSONField(name: "total_pages")
@@ -13,12 +13,12 @@ class MovieRecommendationResponse {
   @JSONField(name: "total_results")
   late int totalResults;
 
-  MovieRecommendationResponse();
+  MoviesResponse();
 
-  factory MovieRecommendationResponse.fromJson(Map<String, dynamic> json) =>
-      $MovieRecommendationResponseFromJson(json);
+  factory MoviesResponse.fromJson(Map<String, dynamic> json) =>
+      $MoviesResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => $MovieRecommendationResponseToJson(this);
+  Map<String, dynamic> toJson() => $MoviesResponseToJson(this);
 
   @override
   String toString() {
