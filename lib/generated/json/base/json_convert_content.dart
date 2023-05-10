@@ -20,11 +20,11 @@ import 'package:movie_mania/data/entity/tv/tv_seasons.dart';
 import 'package:movie_mania/data/entity/tv/tv_spoken_languages.dart';
 import 'package:movie_mania/data/source/network/response/movie/movie_popular_response.dart';
 import 'package:movie_mania/data/source/network/response/movie/movie_recommendation_response.dart';
+import 'package:movie_mania/data/source/network/response/movie/movie_search_response.dart';
 import 'package:movie_mania/data/source/network/response/movie/now_playing_response.dart';
 import 'package:movie_mania/data/source/network/response/response_error.dart';
 
 JsonConvert jsonConvert = JsonConvert();
-
 typedef JsonConvertFunction<T> = T Function(Map<String, dynamic> json);
 typedef EnumConvertFunction<T> = T Function(String value);
 
@@ -45,15 +45,11 @@ class JsonConvert {
     (TvSeasons).toString(): TvSeasons.fromJson,
     (TvSpokenLanguages).toString(): TvSpokenLanguages.fromJson,
     (MoviePopularResponse).toString(): MoviePopularResponse.fromJson,
-    (MoviePopularResponseResults).toString():
-        MoviePopularResponseResults.fromJson,
     (MovieRecommendationResponse).toString():
         MovieRecommendationResponse.fromJson,
-    (MovieRecommendationResponseResults).toString():
-        MovieRecommendationResponseResults.fromJson,
+    (MovieSearchResponse).toString(): MovieSearchResponse.fromJson,
     (NowPlayingResponse).toString(): NowPlayingResponse.fromJson,
     (NowPlayingResponseDates).toString(): NowPlayingResponseDates.fromJson,
-    (NowPlayingResponseResults).toString(): NowPlayingResponseResults.fromJson,
     (ResponseError).toString(): ResponseError.fromJson,
   };
 
@@ -72,7 +68,7 @@ class JsonConvert {
     }
   }
 
-  List<T?>? convertList<T>(List<dynamic>? value,
+	List<T?>? convertList<T>(List<dynamic>? value,
       {EnumConvertFunction? enumConvert}) {
     if (value == null) {
       return null;
@@ -221,22 +217,16 @@ class JsonConvert {
               (Map<String, dynamic> e) => MoviePopularResponse.fromJson(e))
           .toList() as M;
     }
-    if (<MoviePopularResponseResults>[] is M) {
-      return data
-          .map<MoviePopularResponseResults>((Map<String, dynamic> e) =>
-              MoviePopularResponseResults.fromJson(e))
-          .toList() as M;
-    }
     if (<MovieRecommendationResponse>[] is M) {
       return data
           .map<MovieRecommendationResponse>((Map<String, dynamic> e) =>
               MovieRecommendationResponse.fromJson(e))
           .toList() as M;
     }
-    if (<MovieRecommendationResponseResults>[] is M) {
+    if (<MovieSearchResponse>[] is M) {
       return data
-          .map<MovieRecommendationResponseResults>((Map<String, dynamic> e) =>
-              MovieRecommendationResponseResults.fromJson(e))
+          .map<MovieSearchResponse>(
+              (Map<String, dynamic> e) => MovieSearchResponse.fromJson(e))
           .toList() as M;
     }
     if (<NowPlayingResponse>[] is M) {
@@ -249,12 +239,6 @@ class JsonConvert {
       return data
           .map<NowPlayingResponseDates>(
               (Map<String, dynamic> e) => NowPlayingResponseDates.fromJson(e))
-          .toList() as M;
-    }
-    if (<NowPlayingResponseResults>[] is M) {
-      return data
-          .map<NowPlayingResponseResults>(
-              (Map<String, dynamic> e) => NowPlayingResponseResults.fromJson(e))
           .toList() as M;
     }
     if (<ResponseError>[] is M) {
