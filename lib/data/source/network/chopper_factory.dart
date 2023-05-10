@@ -1,5 +1,8 @@
 import 'package:chopper/chopper.dart';
 import 'package:movie_mania/data/source/network/response_converter.dart';
+import 'package:movie_mania/data/source/network/service/movie_service.dart';
+import 'package:movie_mania/data/source/network/service/search_service.dart';
+import 'package:movie_mania/data/source/network/service/tv_service.dart';
 
 class ChopperFactory {
   late final ChopperClient client;
@@ -13,6 +16,14 @@ class ChopperFactory {
         baseUrl: Uri.parse("https://api.themoviedb.org/3"),
         converter: ResponseConverter(),
         errorConverter: ResponseConverter(),
-        services: [],
+        interceptors: [
+          (Request request) async => request.copyWith(
+              parameters: {"api_key": "fbb9572d11b5458ac98f02b84f2bafc4"}),
+        ],
+        services: [
+          MovieService.create(),
+          TvService.create(),
+          SearchService.create(),
+        ],
       );
 }
