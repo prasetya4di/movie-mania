@@ -1,6 +1,6 @@
 import 'package:chopper/chopper.dart';
+import 'package:movie_mania/data/source/network/response/tv/tv_detail_response.dart';
 import 'package:movie_mania/data/source/network/response/tv/tvs_response.dart';
-import 'package:movie_mania/domain/entities/tv/tv.dart';
 
 part 'tv_service.chopper.dart';
 
@@ -18,5 +18,5 @@ abstract class TvService extends ChopperService {
   Future<Response<TvsResponse>> getTvRecommendation(@Path("tv_id") int tvId);
 
   @Get(path: "/{tv_id}")
-  Future<Response<Tv>> getDetail(@Path("tv_id") int tvId);
+  Future<Response<TvDetailResponse>> getDetail(@Path("tv_id") int tvId);
 }

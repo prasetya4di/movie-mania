@@ -1,6 +1,6 @@
 import 'package:chopper/chopper.dart';
+import 'package:movie_mania/data/source/network/response/movie/movie_detail_response.dart';
 import 'package:movie_mania/data/source/network/response/movie/movies_response.dart';
-import 'package:movie_mania/domain/entities/movie/movie.dart';
 
 part 'movie_service.chopper.dart';
 
@@ -19,5 +19,6 @@ abstract class MovieService extends ChopperService {
       @Path("movie_id") int movieId);
 
   @Get(path: "/{movie_id}")
-  Future<Response<Movie>> getDetail(@Path("movie_id") int movieId);
+  Future<Response<MovieDetailResponse>> getDetail(
+      @Path("movie_id") int movieId);
 }

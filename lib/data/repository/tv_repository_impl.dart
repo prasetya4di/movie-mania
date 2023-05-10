@@ -1,9 +1,9 @@
 import 'package:either_dart/either.dart';
 import 'package:movie_mania/data/source/network/response/response_error.dart';
+import 'package:movie_mania/data/source/network/response/tv/tv_detail_response.dart';
 import 'package:movie_mania/data/source/network/response/tv/tvs_response.dart';
 import 'package:movie_mania/data/source/network/service/search_service.dart';
 import 'package:movie_mania/data/source/network/service/tv_service.dart';
-import 'package:movie_mania/domain/entities/tv/tv.dart';
 import 'package:movie_mania/domain/repository/tv_repository.dart';
 
 class TvRepositoryImpl implements TvRepository {
@@ -13,7 +13,7 @@ class TvRepositoryImpl implements TvRepository {
   TvRepositoryImpl(this._tvService, this._searchService);
 
   @override
-  Future<Either<ResponseError, Tv>> getDetail(int id) async {
+  Future<Either<ResponseError, TvDetailResponse>> getDetail(int id) async {
     final response = await _tvService.getDetail(id);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);

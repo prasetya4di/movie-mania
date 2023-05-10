@@ -1,9 +1,9 @@
 import 'package:either_dart/either.dart';
+import 'package:movie_mania/data/source/network/response/movie/movie_detail_response.dart';
 import 'package:movie_mania/data/source/network/response/movie/movies_response.dart';
 import 'package:movie_mania/data/source/network/response/response_error.dart';
 import 'package:movie_mania/data/source/network/service/movie_service.dart';
 import 'package:movie_mania/data/source/network/service/search_service.dart';
-import 'package:movie_mania/domain/entities/movie/movie.dart';
 import 'package:movie_mania/domain/repository/movie_repository.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
@@ -13,7 +13,7 @@ class MovieRepositoryImpl implements MovieRepository {
   MovieRepositoryImpl(this._movieService, this._searchService);
 
   @override
-  Future<Either<ResponseError, Movie>> getDetail(int id) async {
+  Future<Either<ResponseError, MovieDetailResponse>> getDetail(int id) async {
     final response = await _movieService.getDetail(id);
     return Either.condLazy(response.isSuccessful,
         () => response.error as ResponseError, () => response.body!);
