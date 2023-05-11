@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/domain/entities/movie/movie.dart';
 import 'package:movie_mania/presenter/base/base_stateless_view.dart';
 import 'package:movie_mania/presenter/view/movie_detail/movie_detail_view_model.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_back_button.dart';
@@ -24,7 +23,7 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
         if (data.movie == null) {
           return const SizedBox();
         } else {
-          Movie movie = data.movie!;
+          final movie = data.movie!;
           return Stack(
             alignment: Alignment.topCenter,
             children: [
@@ -36,7 +35,7 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       MovieTitle(title: movie.title),
-                      DetailRating(rating: movie.voteAverage),
+                      DetailRating(rating: movie.rating),
                       DetailGenres(genres: movie.genres),
                       DetailRunTime(runtime: movie.runtime),
                       MovieOverview(overview: movie.overview),
