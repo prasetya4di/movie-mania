@@ -12,7 +12,7 @@ class MovieItemResponse {
   late List<int> genreIds;
   late int id;
   @JSONField(name: "media_type")
-  late String mediaType;
+  String? mediaType;
   late String title;
   @JSONField(name: "original_language")
   late String originalLanguage;

@@ -5,7 +5,7 @@ class MovieItem {
   final String backdropPath;
   final List<int> genreIds;
   final int id;
-  final String mediaType;
+  final String? mediaType;
   final String title;
   final String originalLanguage;
   final String originalTitle;

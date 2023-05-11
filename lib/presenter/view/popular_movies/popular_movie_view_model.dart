@@ -11,11 +11,10 @@ class PopularMovieViewModel extends BaseViewModel {
 
   int _currentPage = 1;
   int _totalPage = 1;
-  final UnmodifiableListView<MovieItemViewDataModel> _popularMovies =
-      UnmodifiableListView([]);
+  final List<MovieItemViewDataModel> _popularMovies = [];
 
   UnmodifiableListView<MovieItemViewDataModel> get popularMovies =>
-      _popularMovies;
+      UnmodifiableListView(_popularMovies);
 
   fetchPopularMovies() {
     _fetchPopularMovies(_currentPage).then((value) {

@@ -19,6 +19,7 @@ import 'package:movie_mania/domain/usecases/impl/fetch_search_tvs_impl.dart';
 import 'package:movie_mania/domain/usecases/impl/fetch_tv_detail_impl.dart';
 import 'package:movie_mania/domain/usecases/impl/fetch_tv_on_the_air_impl.dart';
 import 'package:movie_mania/domain/usecases/impl/fetch_tv_recommendations_impl.dart';
+import 'package:movie_mania/presenter/view/popular_movies/popular_movie_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -57,4 +58,5 @@ List<SingleChildWidget> providers = [
   Provider<FetchPopularTvs>(create: (ctx) => FetchPopularTvsImpl(ctx.read())),
   Provider<FetchTvOnTheAir>(create: (ctx) => FetchTvOnTheAirImpl(ctx.read())),
   Provider<FetchSearchTvs>(create: (ctx) => FetchSearchTvsImpl(ctx.read())),
+  ChangeNotifierProvider(create: (ctx) => PopularMovieViewModel(ctx.read())),
 ];

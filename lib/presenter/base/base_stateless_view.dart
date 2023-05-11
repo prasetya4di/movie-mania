@@ -13,10 +13,16 @@ abstract class BaseStatelessView<V extends BaseViewModel>
 
   bool get checkIsLoading => false;
 
-  void pageErrorRetry();
+  void pageErrorRetry(BuildContext context);
+
+  void init(BuildContext context);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) {
+      init(context);
+    });
+
     return Stack(
       children: [
         createView(context),
@@ -34,7 +40,7 @@ abstract class BaseStatelessView<V extends BaseViewModel>
           return ErrorPage(
             message: pageError,
             retry: () {
-              pageErrorRetry();
+              pageErrorRetry(ctx);
             },
           );
         }
