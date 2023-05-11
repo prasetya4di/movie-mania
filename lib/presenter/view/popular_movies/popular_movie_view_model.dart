@@ -19,7 +19,6 @@ class PopularMovieViewModel extends BaseViewModel {
 
   fetchInitPopularMovies() async {
     if (super.loading) return;
-    print("di run");
     super.startLoading();
     _popularMovies.clear();
 
@@ -48,7 +47,6 @@ class PopularMovieViewModel extends BaseViewModel {
     if (_isLoadMore) return;
     _isLoadMore = true;
     _currentPage++;
-    print("di run load more");
 
     await _fetchPopularMovies();
     _isLoadMore = false;
