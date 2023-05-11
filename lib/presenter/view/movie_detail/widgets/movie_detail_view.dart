@@ -3,6 +3,7 @@ import 'package:movie_mania/domain/entities/movie/movie.dart';
 import 'package:movie_mania/presenter/base/base_stateless_view.dart';
 import 'package:movie_mania/presenter/view/movie_detail/movie_detail_view_model.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_back_button.dart';
+import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_genres.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_backdrop.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_information_container.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_overview.dart';
@@ -38,6 +39,7 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           MovieTitle(title: movie.title),
+                          DetailGenres(genres: movie.genres),
                           MovieOverview(overview: movie.overview)
                         ],
                       ),

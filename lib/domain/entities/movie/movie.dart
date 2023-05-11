@@ -9,7 +9,7 @@ class Movie {
   final String _backdropPath;
   dynamic belongsToCollection;
   final int budget;
-  final List<MovieGenres> genres;
+  final List<MovieGenres> _genres;
   final String homepage;
   final int id;
   final String imdbId;
@@ -36,11 +36,13 @@ class Movie {
 
   String get posterPath => "https://image.tmdb.org/t/p/original$_posterPath";
 
+  String get genres => _genres.map((e) => e.name).join(", ");
+
   Movie(
       this.adult,
       this._backdropPath,
       this.budget,
-      this.genres,
+      this._genres,
       this.homepage,
       this.id,
       this.imdbId,
