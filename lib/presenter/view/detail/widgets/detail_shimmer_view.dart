@@ -7,8 +7,8 @@ class DetailShimmerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey.shade500,
-      highlightColor: Colors.grey.shade300,
+      baseColor: Colors.grey.shade700,
+      highlightColor: Colors.grey.shade600,
       child: Column(
         children: [
           Container(

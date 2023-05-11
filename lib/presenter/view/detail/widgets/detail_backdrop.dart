@@ -16,8 +16,8 @@ class DetailBackdrop extends StatelessWidget {
       cacheKey: backdropPath,
       progressIndicatorBuilder: (ctx, _, progress) {
         return Shimmer.fromColors(
-          baseColor: Colors.grey.shade500,
-          highlightColor: Colors.grey.shade300,
+          baseColor: Colors.grey.shade700,
+          highlightColor: Colors.grey.shade600,
           child: Container(
             height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(

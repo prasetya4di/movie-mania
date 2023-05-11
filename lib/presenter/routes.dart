@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie_mania/presenter/view/detail/detail_page.dart';
+import 'package:movie_mania/presenter/view/detail/model/detail_page_arguments.dart';
 import 'package:movie_mania/presenter/view/home/home_page.dart';
-import 'package:movie_mania/presenter/view/movie_detail/detail_page.dart';
 
 class Routes {
   static const home = "/home";
@@ -12,9 +13,9 @@ Route<dynamic>? generateRoute(RouteSettings routeSettings) {
     case Routes.home:
       return MaterialPageRoute(builder: (_) => const HomePage());
     case Routes.detail:
-      final args = routeSettings.arguments as int;
+      final args = routeSettings.arguments as DetailPageArguments;
 
-      return MaterialPageRoute(builder: (ctx) => DetailPage(id: args));
+      return MaterialPageRoute(builder: (ctx) => DetailPage(arguments: args));
   }
   return null;
 }

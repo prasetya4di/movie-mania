@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_container_indicator.dart';
+import 'package:movie_mania/presenter/view/detail/widgets/detail_container_indicator.dart';
 import 'package:movie_mania/presenter/widgets/space_vertical.dart';
 
 class DetailInformationContainer extends StatelessWidget {

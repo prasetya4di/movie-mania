@@ -6,7 +6,7 @@ import 'package:movie_mania/domain/entities/movie/movie_spoken_languages.dart';
 
 class Movie {
   final bool adult;
-  final String _backdropPath;
+  final String? _backdropPath;
   dynamic belongsToCollection;
   final int budget;
   final List<MovieGenres> _genres;

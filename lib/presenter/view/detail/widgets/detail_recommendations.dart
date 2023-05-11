@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/model/item_view_data_model.dart';
 import 'package:movie_mania/presenter/routes.dart';
+import 'package:movie_mania/presenter/view/detail/model/detail_page_arguments.dart';
 import 'package:movie_mania/presenter/widgets/items/item_view.dart';
 import 'package:movie_mania/presenter/widgets/space_vertical.dart';
 
@@ -33,11 +34,18 @@ class DetailRecommendations extends StatelessWidget {
               itemBuilder: (ctx, index) {
                 final item = recommendation[index];
 
+                if (item.posterPath.isEmpty) {
+                  return const SizedBox();
+                }
+
                 return ItemView(
                   movieItem: item,
                   onTap: () {
                     Navigator.pushReplacementNamed(context, Routes.detail,
-                        arguments: item.id);
+                        arguments: DetailPageArguments(
+                          item.id,
+                          item.source,
+                        ));
                   },
                 );
               }),

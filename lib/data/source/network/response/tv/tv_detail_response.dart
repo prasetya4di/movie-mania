@@ -6,9 +6,7 @@ import 'package:movie_mania/generated/json/tv_detail_response.g.dart';
 @JsonSerializable()
 class TvDetailResponse {
   @JSONField(name: "backdrop_path")
-  late String backdropPath;
-  @JSONField(name: "created_by")
-  late List<dynamic> createdBy;
+  String? backdropPath;
   @JSONField(name: "episode_run_time")
   late List<int> episodeRunTime;
   @JSONField(name: "first_air_date")
@@ -25,7 +23,7 @@ class TvDetailResponse {
   late TvDetailResponseLastEpisodeToAir lastEpisodeToAir;
   late String name;
   @JSONField(name: "next_episode_to_air")
-  late TvDetailResponseNextEpisodeToAir nextEpisodeToAir;
+  TvDetailResponseNextEpisodeToAir? nextEpisodeToAir;
   late List<TvDetailResponseNetworks> networks;
   @JSONField(name: "number_of_episodes")
   late int numberOfEpisodes;
@@ -41,8 +39,6 @@ class TvDetailResponse {
   late double popularity;
   @JSONField(name: "poster_path")
   late String posterPath;
-  @JSONField(name: "production_companies")
-  late List<dynamic> productionCompanies;
   @JSONField(name: "production_countries")
   late List<TvDetailResponseProductionCountries> productionCountries;
   late List<TvDetailResponseSeasons> seasons;

@@ -41,7 +41,7 @@ class TvItem {
       response.originalName,
       response.overview,
       response.popularity,
-      response.posterPath,
+      response.posterPath ?? "",
       response.voteAverage,
       response.voteCount);
 }

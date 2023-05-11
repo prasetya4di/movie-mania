@@ -7,7 +7,7 @@ import 'package:movie_mania/generated/json/movie_detail_response.g.dart';
 class MovieDetailResponse {
   late bool adult;
   @JSONField(name: "backdrop_path")
-  late String backdropPath;
+  String? backdropPath;
   @JSONField(name: "belongs_to_collection")
   dynamic belongsToCollection;
   late int budget;

@@ -2,14 +2,12 @@ import 'package:movie_mania/data/source/network/response/tv/tv_detail_response.d
 import 'package:movie_mania/domain/entities/tv/tv_genres.dart';
 import 'package:movie_mania/domain/entities/tv/tv_last_episode_to_air.dart';
 import 'package:movie_mania/domain/entities/tv/tv_networks.dart';
-import 'package:movie_mania/domain/entities/tv/tv_next_episode_to_air.dart';
 import 'package:movie_mania/domain/entities/tv/tv_production_countries.dart';
 import 'package:movie_mania/domain/entities/tv/tv_seasons.dart';
 import 'package:movie_mania/domain/entities/tv/tv_spoken_languages.dart';
 
 class Tv {
-  final String backdropPath;
-  final List<dynamic> createdBy;
+  final String? backdropPath;
   final List<int> episodeRunTime;
   final String firstAirDate;
   final List<TvGenres> genres;
@@ -20,7 +18,6 @@ class Tv {
   final String lastAirDate;
   final TvLastEpisodeToAir lastEpisodeToAir;
   final String name;
-  final TvNextEpisodeToAir nextEpisodeToAir;
   final List<TvNetworks> networks;
   final int numberOfEpisodes;
   final int numberOfSeasons;
@@ -30,7 +27,6 @@ class Tv {
   final String overview;
   final double popularity;
   final String posterPath;
-  final List<dynamic> productionCompanies;
   final List<TvProductionCountries> productionCountries;
   final List<TvSeasons> seasons;
   final List<TvSpokenLanguages> spokenLanguages;
@@ -42,7 +38,6 @@ class Tv {
 
   Tv(
     this.backdropPath,
-    this.createdBy,
     this.episodeRunTime,
     this.firstAirDate,
     this.genres,
@@ -53,7 +48,6 @@ class Tv {
     this.lastAirDate,
     this.lastEpisodeToAir,
     this.name,
-    this.nextEpisodeToAir,
     this.networks,
     this.numberOfEpisodes,
     this.numberOfSeasons,
@@ -63,7 +57,6 @@ class Tv {
     this.overview,
     this.popularity,
     this.posterPath,
-    this.productionCompanies,
     this.productionCountries,
     this.seasons,
     this.spokenLanguages,
@@ -76,7 +69,6 @@ class Tv {
 
   factory Tv.fromResponse(TvDetailResponse res) => Tv(
         res.backdropPath,
-        res.createdBy,
         res.episodeRunTime,
         res.firstAirDate,
         res.genres.map((e) => TvGenres.fromResponse(e)).toList(),
@@ -87,7 +79,6 @@ class Tv {
         res.lastAirDate,
         TvLastEpisodeToAir.fromResponse(res.lastEpisodeToAir),
         res.name,
-        TvNextEpisodeToAir.fromResponse(res.nextEpisodeToAir),
         res.networks.map((e) => TvNetworks.fromResponse(e)).toList(),
         res.numberOfEpisodes,
         res.numberOfSeasons,
@@ -97,7 +88,6 @@ class Tv {
         res.overview,
         res.popularity,
         res.posterPath,
-        res.productionCompanies,
         res.productionCountries
             .map((e) => TvProductionCountries.fromResponse(e))
             .toList(),

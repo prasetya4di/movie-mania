@@ -22,7 +22,7 @@ class TvItemResponse {
   late String overview;
   late double popularity;
   @JSONField(name: "poster_path")
-  late String posterPath;
+  String? posterPath;
   @JSONField(name: "vote_average")
   late double voteAverage;
   @JSONField(name: "vote_count")
