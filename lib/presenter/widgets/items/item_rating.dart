@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/widgets/space_horizontal.dart';
 
-class MovieRating extends StatelessWidget {
+class ItemRating extends StatelessWidget {
   final double rating;
 
-  const MovieRating({super.key, required this.rating});
+  const ItemRating({super.key, required this.rating});
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class MovieItemShimmerView extends StatelessWidget {
-  const MovieItemShimmerView({super.key});
+class ItemShimmerView extends StatelessWidget {
+  const ItemShimmerView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/model/item_view_data_model.dart';
 import 'package:movie_mania/presenter/routes.dart';
-import 'package:movie_mania/presenter/view/movie/widgets/movie_item_view.dart';
+import 'package:movie_mania/presenter/widgets/items/item_view.dart';
 import 'package:movie_mania/presenter/widgets/space_vertical.dart';
 
 class DetailRecommendations extends StatelessWidget {
@@ -33,7 +33,7 @@ class DetailRecommendations extends StatelessWidget {
               itemBuilder: (ctx, index) {
                 final item = recommendation[index];
 
-                return MovieItemView(
+                return ItemView(
                   movieItem: item,
                   onTap: () {
                     Navigator.pushReplacementNamed(context, Routes.detail,

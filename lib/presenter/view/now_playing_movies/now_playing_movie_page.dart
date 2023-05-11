@@ -10,8 +10,7 @@ class NowPlayingMoviePage extends StatefulWidget {
   State<NowPlayingMoviePage> createState() => _NowPlayingMoviePage();
 }
 
-class _NowPlayingMoviePage extends State<NowPlayingMoviePage>
-    with AutomaticKeepAliveClientMixin {
+class _NowPlayingMoviePage extends State<NowPlayingMoviePage> {
   final _scrollController = ScrollController();
   late final NowPlayingMovieViewModel viewModel;
 
@@ -30,10 +29,6 @@ class _NowPlayingMoviePage extends State<NowPlayingMoviePage>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return NowPlayingMovieListView(_scrollController);
   }
-
-  @override
-  bool get wantKeepAlive => true;
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/base/base_stateless_view.dart';
-import 'package:movie_mania/presenter/view/movie/widgets/movies_shimmer_view.dart';
-import 'package:movie_mania/presenter/view/movie/widgets/movies_view.dart';
 import 'package:movie_mania/presenter/view/now_playing_movies/now_playing_movie_view_model.dart';
 import 'package:movie_mania/presenter/widgets/circular_progress.dart';
 import 'package:movie_mania/presenter/widgets/end_of_data_text.dart';
+import 'package:movie_mania/presenter/widgets/items/items_shimmer_view.dart';
+import 'package:movie_mania/presenter/widgets/items/items_view.dart';
 import 'package:provider/provider.dart';
 
 class NowPlayingMovieListView
@@ -20,7 +20,7 @@ class NowPlayingMovieListView
         controller: _scrollController,
         child: Column(
           children: [
-            MoviesView(
+            ItemsView(
               movies: data.listData,
             ),
             if (data.isLoadMore) const CircularProgress(),
@@ -34,7 +34,7 @@ class NowPlayingMovieListView
 
   @override
   Widget loadingView(BuildContext context) {
-    return const MoviesShimmerView();
+    return const ItemShimmerView();
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MovieOverlayView extends StatelessWidget {
-  const MovieOverlayView({super.key});
+class ItemOverlayView extends StatelessWidget {
+  const ItemOverlayView({super.key});
 
   @override
   Widget build(BuildContext context) {

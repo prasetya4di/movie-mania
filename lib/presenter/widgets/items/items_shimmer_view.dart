@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/view/movie/widgets/movie_item_shimmer_view.dart';
 
-class MoviesShimmerView extends StatelessWidget {
-  const MoviesShimmerView({super.key});
+class ItemShimmerView extends StatelessWidget {
+  const ItemShimmerView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class MoviesShimmerView extends StatelessWidget {
         padding: const EdgeInsets.all(6),
         itemCount: 4,
         itemBuilder: (context, index) {
-          return const MovieItemShimmerView();
+          return const ItemShimmerView();
         });
   }
 }
