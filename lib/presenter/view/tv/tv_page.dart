@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/view/on_air_tv/on_air_tv_page.dart';
-import 'package:movie_mania/presenter/view/popular_tv/popular_tv_page.dart';
 import 'package:movie_mania/presenter/view/tv/viewmodel/on_air_tv_view_model.dart';
 import 'package:movie_mania/presenter/view/tv/viewmodel/popular_tv_view_model.dart';
 import 'package:movie_mania/presenter/widgets/items/item_page.dart';
