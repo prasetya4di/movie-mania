@@ -4,6 +4,7 @@ import 'package:movie_mania/presenter/view/popular_movies/popular_movie_view_mod
 import 'package:movie_mania/presenter/view/popular_movies/widgets/movies_shimmer_view.dart';
 import 'package:movie_mania/presenter/view/popular_movies/widgets/movies_view.dart';
 import 'package:movie_mania/presenter/widgets/circular_progress.dart';
+import 'package:movie_mania/presenter/widgets/end_of_data_text.dart';
 import 'package:provider/provider.dart';
 
 class PopularMovieListView extends BaseStatelessView<PopularMovieViewModel> {
@@ -21,11 +22,8 @@ class PopularMovieListView extends BaseStatelessView<PopularMovieViewModel> {
             MoviesView(
               movies: data.listData,
             ),
-            if (data.isLoadMore)
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: CircularProgress(),
-              )
+            if (data.isLoadMore) const CircularProgress(),
+            if (data.page == data.totalPage) const EndOfDataText(),
           ],
         ),
       );
