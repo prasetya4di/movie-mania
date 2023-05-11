@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_mania/data/source/network/response/response_error.dart';
 import 'package:movie_mania/presenter/model/single_observer.dart';
 
-abstract class BaseViewModel implements ChangeNotifier {
+abstract class BaseViewModel extends ChangeNotifier {
   final SingleObserver<bool> _loading = SingleObserver(data: false);
   final SingleObserver<String> _pageMessage = SingleObserver();
 
