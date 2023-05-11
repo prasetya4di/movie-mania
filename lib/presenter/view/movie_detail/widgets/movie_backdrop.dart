@@ -17,7 +17,7 @@ class MovieBackdrop extends StatelessWidget {
           baseColor: Colors.grey.shade500,
           highlightColor: Colors.grey.shade300,
           child: Container(
-            height: 230,
+            height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
               color: Colors.white,
             ),

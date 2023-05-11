@@ -17,7 +17,7 @@ class Movie {
   final String originalTitle;
   final String overview;
   final double popularity;
-  final String posterPath;
+  final String _posterPath;
   final List<MovieProductionCompanies> productionCompanies;
   final List<MovieProductionCountries> productionCountries;
   final String releaseDate;
@@ -34,6 +34,8 @@ class Movie {
   String get backdropPath =>
       "https://image.tmdb.org/t/p/original$_backdropPath";
 
+  String get posterPath => "https://image.tmdb.org/t/p/original$_posterPath";
+
   Movie(
       this.adult,
       this._backdropPath,
@@ -46,7 +48,7 @@ class Movie {
       this.originalTitle,
       this.overview,
       this.popularity,
-      this.posterPath,
+      this._posterPath,
       this.productionCompanies,
       this.productionCountries,
       this.releaseDate,
