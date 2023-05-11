@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/view/popular_movies/widgets/movie_item_shimmer_view.dart';
-import 'package:movie_mania/presenter/view/popular_movies/widgets/movie_overlay_view.dart';
+import 'package:movie_mania/presenter/view/movie/widgets/movie_item_shimmer_view.dart';
+import 'package:movie_mania/presenter/view/movie/widgets/movie_overlay_view.dart';
 
 class MoviePosterView extends StatelessWidget {
   final String posterPath;
