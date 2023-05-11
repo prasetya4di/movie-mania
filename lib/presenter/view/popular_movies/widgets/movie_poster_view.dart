@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_mania/presenter/view/popular_movies/widgets/movie_item_shimmer_view.dart';
 import 'package:movie_mania/presenter/view/popular_movies/widgets/movie_overlay_view.dart';
 
 class MoviePosterView extends StatelessWidget {
@@ -14,6 +15,7 @@ class MoviePosterView extends StatelessWidget {
       child: CachedNetworkImage(
         fit: BoxFit.cover,
         imageUrl: posterPath,
+        cacheKey: posterPath,
         imageBuilder: (context, provider) {
           return Stack(
             children: [
@@ -23,7 +25,7 @@ class MoviePosterView extends StatelessWidget {
           );
         },
         progressIndicatorBuilder: (ctx, _, progress) {
-          return const SizedBox(height: 280);
+          return const MovieItemShimmerView();
         },
       ),
     );

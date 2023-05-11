@@ -17,6 +17,7 @@ class PopularMovieViewModel extends BaseViewModel {
       UnmodifiableListView(_popularMovies);
 
   fetchPopularMovies() {
+    super.setLoading(true);
     _fetchPopularMovies(_currentPage).then((value) {
       value.fold(
         (failure) => super.setResponseError(failure),

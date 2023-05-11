@@ -17,8 +17,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Movie Mania',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
           fontFamily: "Poppins",
+          colorScheme: ColorScheme.fromSwatch(
+              primarySwatch: Colors.blueGrey,
+              backgroundColor: Colors.black,
+              brightness: Brightness.dark),
         ),
         home: const MoviePage(),
       ),

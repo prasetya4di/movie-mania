@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/base/base_stateless_view.dart';
 import 'package:movie_mania/presenter/view/popular_movies/popular_movie_view_model.dart';
+import 'package:movie_mania/presenter/view/popular_movies/widgets/movies_shimmer_view.dart';
 import 'package:movie_mania/presenter/view/popular_movies/widgets/movies_view.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,7 @@ class PopularMoviePage extends BaseStatelessView<PopularMovieViewModel> {
 
   @override
   Widget loadingView(BuildContext context) {
-    return const CircularProgressIndicator();
+    return const MoviesShimmerView();
   }
 
   @override
@@ -28,4 +29,7 @@ class PopularMoviePage extends BaseStatelessView<PopularMovieViewModel> {
   void init(BuildContext context) {
     context.read<PopularMovieViewModel>().fetchPopularMovies();
   }
+
+  @override
+  bool get checkIsLoading => true;
 }
