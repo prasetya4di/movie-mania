@@ -2,7 +2,7 @@ import 'package:movie_mania/data/source/network/response/movie/movie_detail_resp
 
 class MovieProductionCompanies {
   final int id;
-  final String logoPath;
+  final String? logoPath;
   final String name;
   final String originCountry;
 

@@ -78,7 +78,7 @@ class MovieDetailResponseGenres {
 class MovieDetailResponseProductionCompanies {
   late int id;
   @JSONField(name: "logo_path")
-  late String logoPath;
+  String? logoPath;
   late String name;
   @JSONField(name: "origin_country")
   late String originCountry;

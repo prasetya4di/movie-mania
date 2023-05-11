@@ -1,6 +1,8 @@
 import 'package:movie_mania/data/source/network/parser_exception.dart';
+import 'package:movie_mania/data/source/network/response/movie/movie_detail_response.dart';
 import 'package:movie_mania/data/source/network/response/movie/movies_response.dart';
 import 'package:movie_mania/data/source/network/response/response_error.dart';
+import 'package:movie_mania/data/source/network/response/tv/tv_detail_response.dart';
 import 'package:movie_mania/data/source/network/response/tv/tvs_response.dart';
 
 typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
@@ -9,6 +11,8 @@ class JsonTypeParser {
   static const Map<Type, JsonFactory> factories = {
     MoviesResponse: MoviesResponse.fromJson,
     TvsResponse: TvsResponse.fromJson,
+    MovieDetailResponse: MovieDetailResponse.fromJson,
+    TvDetailResponse: TvDetailResponse.fromJson,
     ResponseError: ResponseError.fromJson
   };
 
