@@ -7,6 +7,10 @@ class MovieTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(title, style: Theme.of(context).textTheme.titleLarge);
+    return Text(title,
+        style: Theme.of(context)
+            .textTheme
+            .headlineMedium
+            ?.copyWith(color: Colors.white));
   }
 }

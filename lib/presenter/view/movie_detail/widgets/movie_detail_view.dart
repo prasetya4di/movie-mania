@@ -5,6 +5,7 @@ import 'package:movie_mania/presenter/view/movie_detail/movie_detail_view_model.
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_back_button.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_backdrop.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_information_container.dart';
+import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_overview.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_title.dart';
 import 'package:movie_mania/presenter/widgets/circular_progress.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,10 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [MovieTitle(title: movie.title)],
+                        children: [
+                          MovieTitle(title: movie.title),
+                          MovieOverview(overview: movie.overview)
+                        ],
                       ),
                     )
                   ],
