@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/view/now_playing_movies/now_playing_movie_page.dart';
+import 'package:movie_mania/presenter/view/on_air_tv/on_air_tv_page.dart';
 import 'package:movie_mania/presenter/view/popular_movies/popular_movie_page.dart';
 
 class TvPage extends StatefulWidget {
@@ -26,7 +26,7 @@ class _TvPageState extends State<TvPage> with AutomaticKeepAliveClientMixin {
           ),
         ),
         body: const TabBarView(
-          children: [NowPlayingMoviePage(), PopularMoviePage()],
+          children: [OnAirTvPage(), PopularMoviePage()],
         ),
       ),
     );
