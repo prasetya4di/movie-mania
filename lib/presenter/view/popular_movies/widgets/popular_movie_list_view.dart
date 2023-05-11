@@ -13,9 +13,20 @@ class PopularMovieListView extends BaseStatelessView<PopularMovieViewModel> {
   @override
   Widget createView(BuildContext context) {
     return Consumer<PopularMovieViewModel>(builder: (ctx, data, _) {
-      return MoviesView(
-        movies: data.popularMovies,
-        scrollController: _scrollController,
+      return SingleChildScrollView(
+        controller: _scrollController,
+        child: Column(
+          children: [
+            MoviesView(
+              movies: data.listData,
+            ),
+            if (data.isLoadMore)
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: CircularProgressIndicator(),
+              )
+          ],
+        ),
       );
     });
   }
@@ -27,7 +38,7 @@ class PopularMovieListView extends BaseStatelessView<PopularMovieViewModel> {
 
   @override
   void pageErrorRetry(BuildContext context) {
-    context.read<PopularMovieViewModel>().fetchInitPopularMovies();
+    context.read<PopularMovieViewModel>().fetchFirstPage();
   }
 
   @override

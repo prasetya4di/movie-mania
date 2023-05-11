@@ -9,7 +9,7 @@ class MovieItemViewDataModel {
 
   factory MovieItemViewDataModel.fromMovieItem(MovieItem item) =>
       MovieItemViewDataModel(
-        "https://image.tmdb.org/t/p/original/${item.posterPath}",
+        "https://image.tmdb.org/t/p/w185/${item.posterPath}",
         item.title,
         item.voteAverage,
       );

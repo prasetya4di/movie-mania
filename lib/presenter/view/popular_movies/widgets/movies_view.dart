@@ -4,12 +4,10 @@ import 'package:movie_mania/presenter/view/popular_movies/widgets/movie_item_vie
 
 class MoviesView extends StatelessWidget {
   final List<MovieItemViewDataModel> movies;
-  final ScrollController scrollController;
 
   const MoviesView({
     super.key,
     required this.movies,
-    required this.scrollController,
   });
 
   @override
@@ -19,11 +17,13 @@ class MoviesView extends StatelessWidget {
         childAspectRatio: 0.68,
         crossAxisCount: 2,
       ),
+      shrinkWrap: true,
+      primary: false,
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: movies.length,
       itemBuilder: (context, index) {
         return MovieItemView(movieItem: movies[index]);
       },
-      controller: scrollController,
     );
   }
 }

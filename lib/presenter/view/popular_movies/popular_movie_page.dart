@@ -21,10 +21,10 @@ class _PopularMoviePage extends State<PopularMoviePage> {
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
-        viewModel.fetchMorePopularMovies();
+        viewModel.fetchNextPage();
       }
     });
-    viewModel.fetchInitPopularMovies();
+    viewModel.fetchFirstPage();
   }
 
   @override
