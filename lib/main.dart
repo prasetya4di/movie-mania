@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/di.dart';
-import 'package:movie_mania/presenter/view/movie/movie_page.dart';
+import 'package:movie_mania/presenter/view/movie_detail/movie_detail_page.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.black,
               brightness: Brightness.dark),
         ),
-        home: const MoviePage(),
+        home: const MovieDetailPage(movieId: 758323),
       ),
     );
   }

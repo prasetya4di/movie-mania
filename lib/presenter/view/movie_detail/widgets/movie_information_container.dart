@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_container_indicator.dart';
 import 'package:movie_mania/presenter/widgets/space_vertical.dart';
 
 class MovieInformationContainer extends StatelessWidget {
@@ -18,7 +19,12 @@ class MovieInformationContainer extends StatelessWidget {
             decoration: const BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(8))),
-            child: child,
+            child: Column(
+              children: [
+                const DetailContainerIndicator(),
+                child,
+              ],
+            ),
           )
         ],
       ),

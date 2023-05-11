@@ -7,14 +7,12 @@ import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_genres.da
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_rating.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_recommendations.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_runtime.dart';
+import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_shimmer_view.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_backdrop.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_information_container.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_overview.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_title.dart';
-import 'package:movie_mania/presenter/widgets/circular_progress.dart';
 import 'package:provider/provider.dart';
-
-import 'detail_container_indicator.dart';
 
 class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
   const MovieDetailView({super.key});
@@ -33,25 +31,20 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
               MovieBackdrop(backdropPath: movie.posterPath),
               const DetailBackButton(),
               MovieInformationContainer(
-                child: Column(
-                  children: [
-                    const DetailContainerIndicator(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          MovieTitle(title: movie.title),
-                          DetailRating(rating: movie.voteAverage),
-                          DetailGenres(genres: movie.genres),
-                          DetailRunTime(runtime: movie.runtime),
-                          MovieOverview(overview: movie.overview),
-                          DetailRecommendations(
-                              recommendation: data.recommendations)
-                        ],
-                      ),
-                    )
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MovieTitle(title: movie.title),
+                      DetailRating(rating: movie.voteAverage),
+                      DetailGenres(genres: movie.genres),
+                      DetailRunTime(runtime: movie.runtime),
+                      MovieOverview(overview: movie.overview),
+                      DetailRecommendations(
+                          recommendation: data.recommendations)
+                    ],
+                  ),
                 ),
               )
             ],
@@ -63,7 +56,7 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
 
   @override
   Widget loadingView(BuildContext context) {
-    return const CircularProgress();
+    return const DetailShimmerView();
   }
 
   @override
