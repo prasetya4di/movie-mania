@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/view/movie/movie_page.dart';
+import 'package:movie_mania/presenter/view/home/home_page.dart';
 import 'package:movie_mania/presenter/view/movie_detail/movie_detail_page.dart';
 
 class Routes {
@@ -10,7 +10,7 @@ class Routes {
 Route<dynamic>? generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
     case Routes.home:
-      return MaterialPageRoute(builder: (_) => const MoviePage());
+      return MaterialPageRoute(builder: (_) => const HomePage());
     case Routes.detail:
       final args = routeSettings.arguments as int;
 

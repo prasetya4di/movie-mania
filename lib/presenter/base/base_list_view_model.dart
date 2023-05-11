@@ -18,6 +18,7 @@ abstract class BaseListViewModel<T> extends BaseViewModel {
   fetchFirstPage() async {
     if (super.loading) return;
     super.startLoading();
+    page = 1;
     _listData.clear();
 
     await fetchData();
