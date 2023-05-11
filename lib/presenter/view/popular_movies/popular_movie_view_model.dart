@@ -1,8 +1,8 @@
 import 'package:movie_mania/domain/usecases/fetch_popular_movies.dart';
 import 'package:movie_mania/presenter/base/base_list_view_model.dart';
-import 'package:movie_mania/presenter/model/movie_item_view_data_model.dart';
+import 'package:movie_mania/presenter/model/item_view_data_model.dart';
 
-class PopularMovieViewModel extends BaseListViewModel<MovieItemViewDataModel> {
+class PopularMovieViewModel extends BaseListViewModel<ItemViewDataModel> {
   final FetchPopularMovies _fetchPopularMoviesUseCase;
 
   PopularMovieViewModel(this._fetchPopularMoviesUseCase);
@@ -14,8 +14,7 @@ class PopularMovieViewModel extends BaseListViewModel<MovieItemViewDataModel> {
         (failure) => setResponseError(failure),
         (movies) {
           totalPage = movies.totalPages;
-          listData =
-              movies.data.map((e) => MovieItemViewDataModel.fromMovieItem(e));
+          listData = movies.data.map((e) => ItemViewDataModel.fromMovieItem(e));
         },
       );
     }).then((value) {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/model/movie_item_view_data_model.dart';
+import 'package:movie_mania/presenter/model/item_view_data_model.dart';
 import 'package:movie_mania/presenter/routes.dart';
 import 'package:movie_mania/presenter/view/movie/widgets/movie_item_view.dart';
 
 class MoviesView extends StatelessWidget {
-  final List<MovieItemViewDataModel> movies;
+  final List<ItemViewDataModel> movies;
 
   const MoviesView({
     super.key,

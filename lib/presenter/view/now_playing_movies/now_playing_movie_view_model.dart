@@ -1,9 +1,8 @@
 import 'package:movie_mania/domain/usecases/fetch_now_playing_movies.dart';
 import 'package:movie_mania/presenter/base/base_list_view_model.dart';
-import 'package:movie_mania/presenter/model/movie_item_view_data_model.dart';
+import 'package:movie_mania/presenter/model/item_view_data_model.dart';
 
-class NowPlayingMovieViewModel
-    extends BaseListViewModel<MovieItemViewDataModel> {
+class NowPlayingMovieViewModel extends BaseListViewModel<ItemViewDataModel> {
   final FetchNowPlayingMovies _fetchNowPlayingMovies;
 
   NowPlayingMovieViewModel(this._fetchNowPlayingMovies);
@@ -15,8 +14,7 @@ class NowPlayingMovieViewModel
         (failure) => setResponseError(failure),
         (movies) {
           totalPage = movies.totalPages;
-          listData =
-              movies.data.map((e) => MovieItemViewDataModel.fromMovieItem(e));
+          listData = movies.data.map((e) => ItemViewDataModel.fromMovieItem(e));
         },
       );
     }).then((value) {

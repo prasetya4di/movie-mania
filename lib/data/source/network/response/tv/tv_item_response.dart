@@ -24,7 +24,7 @@ class TvItemResponse {
   @JSONField(name: "poster_path")
   late String posterPath;
   @JSONField(name: "vote_average")
-  late int voteAverage;
+  late double voteAverage;
   @JSONField(name: "vote_count")
   late int voteCount;
 

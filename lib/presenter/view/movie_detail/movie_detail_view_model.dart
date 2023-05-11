@@ -4,7 +4,7 @@ import 'package:movie_mania/domain/entities/movie/movie.dart';
 import 'package:movie_mania/domain/usecases/fetch_movie_detail.dart';
 import 'package:movie_mania/domain/usecases/fetch_movie_recommendations.dart';
 import 'package:movie_mania/presenter/base/base_view_model.dart';
-import 'package:movie_mania/presenter/model/movie_item_view_data_model.dart';
+import 'package:movie_mania/presenter/model/item_view_data_model.dart';
 
 class MovieDetailViewModel extends BaseViewModel {
   final FetchMovieDetail _fetchMovieDetail;
@@ -12,11 +12,11 @@ class MovieDetailViewModel extends BaseViewModel {
 
   MovieDetailViewModel(this._fetchMovieDetail, this._fetchMovieRecommendations);
 
-  final List<MovieItemViewDataModel> _recommendations = [];
+  final List<ItemViewDataModel> _recommendations = [];
   Movie? _movie;
   int _movieId = 0;
 
-  UnmodifiableListView<MovieItemViewDataModel> get recommendations =>
+  UnmodifiableListView<ItemViewDataModel> get recommendations =>
       UnmodifiableListView(_recommendations);
 
   Movie? get movie => _movie;
@@ -44,8 +44,8 @@ class MovieDetailViewModel extends BaseViewModel {
             (failure) => setResponseError(failure),
             (movies) {
               _recommendations.clear();
-              _recommendations.addAll(movies.data
-                  .map((e) => MovieItemViewDataModel.fromMovieItem(e)));
+              _recommendations.addAll(
+                  movies.data.map((e) => ItemViewDataModel.fromMovieItem(e)));
             },
           );
         })

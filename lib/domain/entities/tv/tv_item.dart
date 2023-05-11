@@ -12,7 +12,7 @@ class TvItem {
   final String overview;
   final double popularity;
   final String posterPath;
-  final int voteAverage;
+  final double voteAverage;
   final int voteCount;
 
   TvItem(
