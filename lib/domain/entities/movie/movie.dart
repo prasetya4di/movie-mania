@@ -6,7 +6,7 @@ import 'package:movie_mania/domain/entities/movie/movie_spoken_languages.dart';
 
 class Movie {
   final bool adult;
-  final String backdropPath;
+  final String _backdropPath;
   dynamic belongsToCollection;
   final int budget;
   final List<MovieGenres> genres;
@@ -31,9 +31,12 @@ class Movie {
   final double voteAverage;
   final int voteCount;
 
+  String get backdropPath =>
+      "https://image.tmdb.org/t/p/original$_backdropPath";
+
   Movie(
       this.adult,
-      this.backdropPath,
+      this._backdropPath,
       this.budget,
       this.genres,
       this.homepage,
