@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_mania/presenter/view/popular_movies/widgets/movie_overlay_view.dart';
 
 class MoviePosterView extends StatelessWidget {
   final String posterPath;
@@ -9,11 +10,20 @@ class MoviePosterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: const BorderRadius.vertical(top: Radius.circular(6)),
+      borderRadius: const BorderRadius.all(Radius.circular(6)),
       child: CachedNetworkImage(
+        fit: BoxFit.cover,
         imageUrl: posterPath,
+        imageBuilder: (context, provider) {
+          return Stack(
+            children: [
+              Image(image: provider),
+              const MovieOverlayView(),
+            ],
+          );
+        },
         progressIndicatorBuilder: (ctx, _, progress) {
-          return const SizedBox(height: 180);
+          return const SizedBox(height: 280);
         },
       ),
     );

@@ -22,6 +22,7 @@ class PopularMovieViewModel extends BaseViewModel {
         (failure) => super.setResponseError(failure),
         (movies) {
           _totalPage = movies.totalPages;
+          _popularMovies.clear();
           _popularMovies.addAll(
               movies.data.map((e) => MovieItemViewDataModel.fromMovieItem(e)));
         },
