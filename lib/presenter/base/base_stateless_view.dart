@@ -11,11 +11,7 @@ abstract class BaseStatelessView<V extends BaseViewModel>
 
   Widget loadingView(BuildContext context);
 
-  bool get useRootNavigator => true;
-
   bool get checkIsLoading => false;
-
-  int get timeoutSecond => 2;
 
   void pageErrorRetry();
 
