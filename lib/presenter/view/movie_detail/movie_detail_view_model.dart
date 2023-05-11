@@ -12,7 +12,6 @@ class MovieDetailViewModel extends BaseViewModel {
 
   MovieDetailViewModel(this._fetchMovieDetail, this._fetchMovieRecommendations);
 
-  late int _movieId;
   final List<MovieItemViewDataModel> _recommendations = [];
   Movie? _movie;
 
@@ -21,21 +20,17 @@ class MovieDetailViewModel extends BaseViewModel {
 
   Movie? get movie => _movie;
 
-  set movieId(int id) {
-    _movieId = id;
-  }
-
-  fetchAllData() {
+  fetchAllData(int movieId) {
     if (loading) return;
     startLoading();
-    _fetchMovieDetail(_movieId)
+    _fetchMovieDetail(movieId)
         .then((value) {
           value.fold(
             (failure) => setResponseError(failure),
             (movie) => _movie = movie,
           );
         })
-        .then((_) => _fetchMovieRecommendations(_movieId, 0))
+        .then((_) => _fetchMovieRecommendations(movieId, 0))
         .then((value) {
           value.fold(
             (failure) => setResponseError(failure),
