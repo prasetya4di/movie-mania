@@ -28,6 +28,8 @@ class MovieDetailViewModel extends BaseViewModel {
   fetchAllData(int movieId) {
     if (loading) return;
     startLoading();
+    _movie = null;
+    _recommendations.clear();
     _movieId = movieId;
     _fetchMovieDetail(movieId)
         .then((value) {

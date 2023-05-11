@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/model/movie_item_view_data_model.dart';
-import 'package:movie_mania/presenter/routes.dart';
 import 'package:movie_mania/presenter/view/movie/widgets/movie_poster_view.dart';
 import 'package:movie_mania/presenter/view/movie/widgets/movie_rating.dart';
 
 class MovieItemView extends StatelessWidget {
   final MovieItemViewDataModel movieItem;
+  final Function() onTap;
 
-  const MovieItemView({super.key, required this.movieItem});
+  const MovieItemView(
+      {super.key, required this.movieItem, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, Routes.detail, arguments: movieItem.id);
-      },
+      onTap: onTap,
       child: Card(
         child: Stack(
           children: [

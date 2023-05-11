@@ -10,6 +10,8 @@ class MovieBackdrop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      alignment: Alignment.topCenter,
+      height: MediaQuery.of(context).size.height,
       imageUrl: backdropPath,
       cacheKey: backdropPath,
       progressIndicatorBuilder: (ctx, _, progress) {

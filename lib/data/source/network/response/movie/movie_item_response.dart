@@ -21,7 +21,7 @@ class MovieItemResponse {
   late String overview;
   late double popularity;
   @JSONField(name: "poster_path")
-  late String posterPath;
+  String? posterPath;
   @JSONField(name: "release_date")
   String? releaseDate;
   late bool video;

@@ -45,7 +45,7 @@ class MovieItem {
       response.originalTitle,
       response.overview,
       response.popularity,
-      response.posterPath,
+      response.posterPath ?? "",
       response.releaseDate,
       response.video,
       response.voteAverage,

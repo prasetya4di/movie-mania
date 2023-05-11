@@ -29,7 +29,6 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
             alignment: Alignment.topCenter,
             children: [
               MovieBackdrop(backdropPath: movie.posterPath),
-              const DetailBackButton(),
               MovieInformationContainer(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -46,7 +45,8 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
                     ],
                   ),
                 ),
-              )
+              ),
+              const DetailBackButton(),
             ],
           );
         }
@@ -63,4 +63,7 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
   void pageErrorRetry(BuildContext context) {
     context.read<MovieDetailViewModel>().retry();
   }
+
+  @override
+  bool get checkIsLoading => true;
 }

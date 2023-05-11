@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/model/movie_item_view_data_model.dart';
+import 'package:movie_mania/presenter/routes.dart';
 import 'package:movie_mania/presenter/view/movie/widgets/movie_item_view.dart';
 
 class MoviesView extends StatelessWidget {
@@ -22,7 +23,13 @@ class MoviesView extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: movies.length,
       itemBuilder: (context, index) {
-        return MovieItemView(movieItem: movies[index]);
+        return MovieItemView(
+          movieItem: movies[index],
+          onTap: () {
+            Navigator.of(context)
+                .pushNamed(Routes.detail, arguments: movies[index].id);
+          },
+        );
       },
     );
   }

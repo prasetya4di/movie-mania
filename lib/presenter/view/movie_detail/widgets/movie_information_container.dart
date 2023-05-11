@@ -13,7 +13,7 @@ class MovieInformationContainer extends StatelessWidget {
       physics: const ClampingScrollPhysics(),
       child: Column(
         children: [
-          SpaceVertical(size: MediaQuery.of(context).size.height / 2),
+          SpaceVertical(size: MediaQuery.of(context).size.height / 1.6),
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
