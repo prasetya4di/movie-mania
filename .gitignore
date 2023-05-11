@@ -43,6 +43,3 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 /pubspec.lock
-*.g.dart
-*.chopper.dart
-*.freezed.dart
