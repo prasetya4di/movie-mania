@@ -23,7 +23,8 @@ class PopularMovieListView extends BaseStatelessView<PopularMovieViewModel> {
               movies: data.listData,
             ),
             if (data.isLoadMore) const CircularProgress(),
-            if (data.page == data.totalPage) const EndOfDataText(),
+            if (data.page != 1 && data.page == data.totalPage)
+              const EndOfDataText(),
           ],
         ),
       );

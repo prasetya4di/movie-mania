@@ -19,10 +19,12 @@ abstract class BaseViewModel extends ChangeNotifier {
   }
 
   void setThrowable(dynamic throwable) {
+    finishLoading();
     _pageMessage.changeValue(throwable.toString());
   }
 
   void setResponseError(ResponseError error) {
+    finishLoading();
     _pageMessage.changeValue(error.statusMessage);
   }
 }

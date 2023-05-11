@@ -17,8 +17,11 @@ class ErrorPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(Assets.imagesIllustrationError),
-          const SpaceVertical(),
+          SvgPicture.asset(
+            Assets.imagesIllustrationError,
+            width: 285,
+          ),
+          const SpaceVertical(size: 24),
           Text(
             message,
             textAlign: TextAlign.center,
