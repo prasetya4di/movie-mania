@@ -5,6 +5,7 @@ import 'package:movie_mania/presenter/view/movie_detail/movie_detail_view_model.
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_back_button.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_genres.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_rating.dart';
+import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_recommendations.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_runtime.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_backdrop.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_information_container.dart';
@@ -44,7 +45,9 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
                           DetailRating(rating: movie.voteAverage),
                           DetailGenres(genres: movie.genres),
                           DetailRunTime(runtime: movie.runtime),
-                          MovieOverview(overview: movie.overview)
+                          MovieOverview(overview: movie.overview),
+                          DetailRecommendations(
+                              recommendation: data.recommendations)
                         ],
                       ),
                     )
