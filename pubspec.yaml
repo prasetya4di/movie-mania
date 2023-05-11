@@ -39,6 +39,7 @@ dependencies:
   either_dart: ^0.4.0
   cached_network_image: ^3.2.3
   provider: ^6.0.5
+  flutter_svg: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -94,3 +95,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 100
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+  assets:
+    - assets/images/
+
