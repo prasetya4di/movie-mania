@@ -22,7 +22,7 @@ class Movie {
   final List<MovieProductionCountries> productionCountries;
   final String releaseDate;
   final int revenue;
-  final int runtime;
+  final int _runtime;
   final List<MovieSpokenLanguages> spokenLanguages;
   final String status;
   final String tagline;
@@ -37,6 +37,12 @@ class Movie {
   String get posterPath => "https://image.tmdb.org/t/p/original$_posterPath";
 
   String get genres => _genres.map((e) => e.name).join(", ");
+
+  String get runtime {
+    var d = Duration(minutes: _runtime);
+    List<String> parts = d.toString().split(':');
+    return '${parts[0]}h ${parts[1]}m';
+  }
 
   Movie(
       this.adult,
@@ -55,7 +61,7 @@ class Movie {
       this.productionCountries,
       this.releaseDate,
       this.revenue,
-      this.runtime,
+      this._runtime,
       this.spokenLanguages,
       this.status,
       this.tagline,
