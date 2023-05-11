@@ -6,7 +6,7 @@ import 'package:movie_mania/generated/json/tv_item_response.g.dart';
 @JsonSerializable()
 class TvItemResponse {
   @JSONField(name: "backdrop_path")
-  late String backdropPath;
+  String? backdropPath;
   @JSONField(name: "first_air_date")
   late String firstAirDate;
   @JSONField(name: "genre_ids")

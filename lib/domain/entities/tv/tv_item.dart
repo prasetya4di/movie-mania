@@ -1,7 +1,7 @@
 import 'package:movie_mania/data/source/network/response/tv/tv_item_response.dart';
 
 class TvItem {
-  final String backdropPath;
+  final String? backdropPath;
   final String firstAirDate;
   final List<int> genreIds;
   final int id;

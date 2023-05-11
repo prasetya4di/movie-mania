@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/view/now_playing_movies/now_playing_movie_view_model.dart';
-import 'package:movie_mania/presenter/view/now_playing_movies/widgets/now_playing_movie_list_view.dart';
+import 'package:movie_mania/presenter/widgets/items/item_list_view.dart';
 import 'package:provider/provider.dart';
 
 class NowPlayingMoviePage extends StatefulWidget {
@@ -29,6 +29,6 @@ class _NowPlayingMoviePage extends State<NowPlayingMoviePage> {
 
   @override
   Widget build(BuildContext context) {
-    return NowPlayingMovieListView(_scrollController);
+    return ItemListView<NowPlayingMovieViewModel>(_scrollController);
   }
 }

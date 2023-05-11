@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/view/on_air_tv/on_air_tv_view_model.dart';
-import 'package:movie_mania/presenter/view/on_air_tv/widgets/on_air_tv_list_view.dart';
+import 'package:movie_mania/presenter/widgets/items/item_list_view.dart';
 import 'package:provider/provider.dart';
 
 class OnAirTvPage extends StatefulWidget {
@@ -29,6 +29,6 @@ class _OnAirTvPage extends State<OnAirTvPage> {
 
   @override
   Widget build(BuildContext context) {
-    return OnAirTvListView(_scrollController);
+    return ItemListView<OnAirTvViewModel>(_scrollController);
   }
 }

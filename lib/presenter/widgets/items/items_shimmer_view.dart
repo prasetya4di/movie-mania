@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:movie_mania/presenter/widgets/items/item_shimmer_view.dart';
 
-class ItemShimmerView extends StatelessWidget {
-  const ItemShimmerView({super.key});
+class ItemsShimmerView extends StatelessWidget {
+  const ItemsShimmerView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/view/popular_movies/popular_movie_view_model.dart';
-import 'package:movie_mania/presenter/view/popular_movies/widgets/popular_movie_list_view.dart';
+import 'package:movie_mania/presenter/view/popular_tv/popular_tv_view_model.dart';
+import 'package:movie_mania/presenter/widgets/items/item_list_view.dart';
 import 'package:provider/provider.dart';
 
 class PopularTvPage extends StatefulWidget {
@@ -12,7 +12,7 @@ class PopularTvPage extends StatefulWidget {
 
 class _PopularMoviePage extends State<PopularTvPage> {
   final _scrollController = ScrollController();
-  late final PopularMovieViewModel viewModel;
+  late final PopularTvViewModel viewModel;
 
   @override
   void initState() {
@@ -29,6 +29,6 @@ class _PopularMoviePage extends State<PopularTvPage> {
 
   @override
   Widget build(BuildContext context) {
-    return PopularMovieListView(_scrollController);
+    return ItemListView<PopularTvViewModel>(_scrollController);
   }
 }
