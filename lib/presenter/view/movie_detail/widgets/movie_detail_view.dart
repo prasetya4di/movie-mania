@@ -40,8 +40,9 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
                       DetailGenres(genres: movie.genres),
                       DetailRunTime(runtime: movie.runtime),
                       MovieOverview(overview: movie.overview),
-                      DetailRecommendations(
-                          recommendation: data.recommendations)
+                      if (data.recommendations.isNotEmpty)
+                        DetailRecommendations(
+                            recommendation: data.recommendations)
                     ],
                   ),
                 ),
