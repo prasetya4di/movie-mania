@@ -1,35 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/base/base_stateless_view.dart';
 import 'package:movie_mania/presenter/view/popular_movies/popular_movie_view_model.dart';
-import 'package:movie_mania/presenter/view/popular_movies/widgets/movies_shimmer_view.dart';
-import 'package:movie_mania/presenter/view/popular_movies/widgets/movies_view.dart';
+import 'package:movie_mania/presenter/view/popular_movies/widgets/popular_movie_list_view.dart';
 import 'package:provider/provider.dart';
 
-class PopularMoviePage extends BaseStatelessView<PopularMovieViewModel> {
+class PopularMoviePage extends StatefulWidget {
   const PopularMoviePage({super.key});
 
   @override
-  Widget createView(BuildContext context) {
-    return Consumer<PopularMovieViewModel>(builder: (ctx, data, _) {
-      return MoviesView(movies: data.popularMovies);
+  State<PopularMoviePage> createState() => _PopularMoviePage();
+}
+
+class _PopularMoviePage extends State<PopularMoviePage> {
+  final _scrollController = ScrollController();
+  late final PopularMovieViewModel viewModel;
+
+  @override
+  void initState() {
+    super.initState();
+    viewModel = context.read();
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        viewModel.fetchMorePopularMovies();
+      }
     });
+    viewModel.fetchInitPopularMovies();
   }
 
   @override
-  Widget loadingView(BuildContext context) {
-    return const MoviesShimmerView();
+  Widget build(BuildContext context) {
+    return PopularMovieListView(_scrollController);
   }
-
-  @override
-  void pageErrorRetry(BuildContext context) {
-    context.read<PopularMovieViewModel>().fetchPopularMovies();
-  }
-
-  @override
-  void init(BuildContext context) {
-    context.read<PopularMovieViewModel>().fetchPopularMovies();
-  }
-
-  @override
-  bool get checkIsLoading => true;
 }

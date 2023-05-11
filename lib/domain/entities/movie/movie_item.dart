@@ -2,7 +2,7 @@ import 'package:movie_mania/data/source/network/response/movie/movie_item_respon
 
 class MovieItem {
   final bool adult;
-  final String backdropPath;
+  final String? backdropPath;
   final List<int> genreIds;
   final int id;
   final String? mediaType;
@@ -12,7 +12,7 @@ class MovieItem {
   final String overview;
   final double popularity;
   final String posterPath;
-  final String releaseDate;
+  final String? releaseDate;
   final bool video;
   final double voteAverage;
   final int voteCount;

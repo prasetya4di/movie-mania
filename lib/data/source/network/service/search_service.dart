@@ -11,13 +11,13 @@ abstract class SearchService extends ChopperService {
 
   @Get(path: "/movie")
   Future<Response<MoviesResponse>> searchMovie(
-    @Query("page") int page,
-    @Query("query") String key,
+    @Query() int page,
+    @Query() String query,
   );
 
   @Get(path: "/tv")
   Future<Response<TvsResponse>> searchTv(
-    @Query("page") int page,
-    @Query("query") String key,
+    @Query() int page,
+    @Query() String query,
   );
 }

@@ -17,8 +17,10 @@ class ChopperFactory {
         converter: ResponseConverter(),
         errorConverter: ResponseConverter(),
         interceptors: [
-          (Request request) async => request.copyWith(
-              parameters: {"api_key": "fbb9572d11b5458ac98f02b84f2bafc4"}),
+          (Request request) {
+            request.parameters["api_key"] = "fbb9572d11b5458ac98f02b84f2bafc4";
+            return request.copyWith(parameters: request.parameters);
+          },
         ],
         services: [
           MovieService.create(),

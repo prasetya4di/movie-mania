@@ -9,15 +9,15 @@ abstract class TvService extends ChopperService {
   static TvService create([ChopperClient? client]) => _$TvService(client);
 
   @Get(path: "/on_the_air")
-  Future<Response<TvsResponse>> getTvOnTheAir(@Query("page") int page);
+  Future<Response<TvsResponse>> getTvOnTheAir(@Query() int page);
 
   @Get(path: "/popular")
-  Future<Response<TvsResponse>> getPopularTv(@Query("page") int page);
+  Future<Response<TvsResponse>> getPopularTv(@Query() int page);
 
   @Get(path: "/{tv_id}/recommendations")
   Future<Response<TvsResponse>> getTvRecommendation(
     @Path("tv_id") int tvId,
-    @Query("page") int page,
+    @Query() int page,
   );
 
   @Get(path: "/{tv_id}")

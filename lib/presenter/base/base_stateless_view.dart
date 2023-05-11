@@ -15,14 +15,8 @@ abstract class BaseStatelessView<V extends BaseViewModel>
 
   void pageErrorRetry(BuildContext context);
 
-  void init(BuildContext context);
-
   @override
   Widget build(BuildContext context) {
-    WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) {
-      init(context);
-    });
-
     return Stack(
       children: [
         createView(context),
@@ -53,8 +47,7 @@ abstract class BaseStatelessView<V extends BaseViewModel>
   Widget _createLoading() {
     if (checkIsLoading) {
       return Consumer<V>(builder: (context, data, _) {
-        final isLoading = data.loading.observer();
-        if (isLoading == true) {
+        if (data.loading) {
           return loadingView(context);
         }
 

@@ -7,7 +7,7 @@ import 'package:movie_mania/generated/json/movie_item_response.g.dart';
 class MovieItemResponse {
   late bool adult;
   @JSONField(name: "backdrop_path")
-  late String backdropPath;
+  String? backdropPath;
   @JSONField(name: "genre_ids")
   late List<int> genreIds;
   late int id;
@@ -23,7 +23,7 @@ class MovieItemResponse {
   @JSONField(name: "poster_path")
   late String posterPath;
   @JSONField(name: "release_date")
-  late String releaseDate;
+  String? releaseDate;
   late bool video;
   @JSONField(name: "vote_average")
   late double voteAverage;

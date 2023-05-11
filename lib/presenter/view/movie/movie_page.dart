@@ -15,7 +15,7 @@ class _MoviePageState extends State<MoviePage> {
       appBar: AppBar(
         title: const Text("Movie Mania"),
       ),
-      body: const PopularMoviePage(),
+      body: PopularMoviePage(),
     );
   }
 }
