@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MovieTitle extends StatelessWidget {
+class DetailTitle extends StatelessWidget {
   final String title;
 
-  const MovieTitle({super.key, required this.title});
+  const DetailTitle({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

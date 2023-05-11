@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_container_indicator.dart';
 import 'package:movie_mania/presenter/widgets/space_vertical.dart';
 
-class MovieInformationContainer extends StatelessWidget {
+class DetailInformationContainer extends StatelessWidget {
   final Widget child;
 
-  const MovieInformationContainer({super.key, required this.child});
+  const DetailInformationContainer({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {

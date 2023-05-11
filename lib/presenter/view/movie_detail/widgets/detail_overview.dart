@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MovieOverview extends StatelessWidget {
+class DetailOverview extends StatelessWidget {
   final String overview;
 
-  const MovieOverview({super.key, required this.overview});
+  const DetailOverview({super.key, required this.overview});
 
   @override
   Widget build(BuildContext context) {

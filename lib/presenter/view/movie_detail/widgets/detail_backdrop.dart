@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class MovieBackdrop extends StatelessWidget {
+class DetailBackdrop extends StatelessWidget {
   final String backdropPath;
 
-  const MovieBackdrop({super.key, required this.backdropPath});
+  const DetailBackdrop({super.key, required this.backdropPath});
 
   @override
   Widget build(BuildContext context) {

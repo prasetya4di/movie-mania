@@ -1,44 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/base/base_stateless_view.dart';
-import 'package:movie_mania/presenter/view/movie_detail/movie_detail_view_model.dart';
+import 'package:movie_mania/presenter/view/movie_detail/detail_view_model.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_back_button.dart';
+import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_backdrop.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_genres.dart';
+import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_information_container.dart';
+import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_overview.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_rating.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_recommendations.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_runtime.dart';
 import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_shimmer_view.dart';
-import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_backdrop.dart';
-import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_information_container.dart';
-import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_overview.dart';
-import 'package:movie_mania/presenter/view/movie_detail/widgets/movie_title.dart';
+import 'package:movie_mania/presenter/view/movie_detail/widgets/detail_title.dart';
 import 'package:provider/provider.dart';
 
-class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
-  const MovieDetailView({super.key});
+class DetailView extends BaseStatelessView<DetailViewModel> {
+  const DetailView({super.key});
 
   @override
   Widget createView(BuildContext context) {
-    return Consumer<MovieDetailViewModel>(
+    return Consumer<DetailViewModel>(
       builder: (ctx, data, _) {
-        if (data.movie == null) {
+        if (data.detail == null) {
           return const SizedBox();
         } else {
-          final movie = data.movie!;
+          final movie = data.detail!;
           return Stack(
             alignment: Alignment.topCenter,
             children: [
-              MovieBackdrop(backdropPath: movie.posterPath),
-              MovieInformationContainer(
+              DetailBackdrop(backdropPath: movie.posterPath),
+              DetailInformationContainer(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MovieTitle(title: movie.title),
+                      DetailTitle(title: movie.title),
                       DetailRating(rating: movie.rating),
                       DetailGenres(genres: movie.genres),
                       DetailRunTime(runtime: movie.runtime),
-                      MovieOverview(overview: movie.overview),
+                      DetailOverview(overview: movie.overview),
                       if (data.recommendations.isNotEmpty)
                         DetailRecommendations(
                             recommendation: data.recommendations)
@@ -61,7 +61,7 @@ class MovieDetailView extends BaseStatelessView<MovieDetailViewModel> {
 
   @override
   void pageErrorRetry(BuildContext context) {
-    context.read<MovieDetailViewModel>().retry();
+    context.read<DetailViewModel>().retry();
   }
 
   @override

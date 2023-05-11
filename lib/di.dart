@@ -21,7 +21,7 @@ import 'package:movie_mania/domain/usecases/impl/fetch_tv_on_the_air_impl.dart';
 import 'package:movie_mania/domain/usecases/impl/fetch_tv_recommendations_impl.dart';
 import 'package:movie_mania/presenter/view/movie/viewmodel/now_playing_movie_view_model.dart';
 import 'package:movie_mania/presenter/view/movie/viewmodel/popular_movie_view_model.dart';
-import 'package:movie_mania/presenter/view/movie_detail/movie_detail_view_model.dart';
+import 'package:movie_mania/presenter/view/movie_detail/detail_view_model.dart';
 import 'package:movie_mania/presenter/view/tv/viewmodel/on_air_tv_view_model.dart';
 import 'package:movie_mania/presenter/view/tv/viewmodel/popular_tv_view_model.dart';
 import 'package:provider/provider.dart';
@@ -67,5 +67,5 @@ List<SingleChildWidget> providers = [
   ChangeNotifierProvider(create: (ctx) => PopularTvViewModel(ctx.read())),
   ChangeNotifierProvider(create: (ctx) => OnAirTvViewModel(ctx.read())),
   ChangeNotifierProvider(
-      create: (ctx) => MovieDetailViewModel(ctx.read(), ctx.read())),
+      create: (ctx) => DetailViewModel(ctx.read(), ctx.read())),
 ];
