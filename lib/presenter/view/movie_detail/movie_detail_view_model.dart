@@ -14,15 +14,21 @@ class MovieDetailViewModel extends BaseViewModel {
 
   final List<MovieItemViewDataModel> _recommendations = [];
   Movie? _movie;
+  int _movieId = 0;
 
   UnmodifiableListView<MovieItemViewDataModel> get recommendations =>
       UnmodifiableListView(_recommendations);
 
   Movie? get movie => _movie;
 
+  retry() {
+    fetchAllData(_movieId);
+  }
+
   fetchAllData(int movieId) {
     if (loading) return;
     startLoading();
+    _movieId = movieId;
     _fetchMovieDetail(movieId)
         .then((value) {
           value.fold(
@@ -30,7 +36,7 @@ class MovieDetailViewModel extends BaseViewModel {
             (movie) => _movie = movie,
           );
         })
-        .then((_) => _fetchMovieRecommendations(movieId, 0))
+        .then((_) => _fetchMovieRecommendations(movieId, 1))
         .then((value) {
           value.fold(
             (failure) => setResponseError(failure),
