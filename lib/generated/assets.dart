@@ -11,4 +11,5 @@ class Assets {
       'assets/images/illustration_empty_movie.svg';
   static const String imagesIllustrationError =
       'assets/images/illustration_error.svg';
+  static const String imagesLogo = 'assets/images/logo.png';
 }
