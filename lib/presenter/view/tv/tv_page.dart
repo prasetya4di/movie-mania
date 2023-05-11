@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_mania/presenter/view/on_air_tv/on_air_tv_page.dart';
 import 'package:movie_mania/presenter/view/popular_tv/popular_tv_page.dart';
+import 'package:movie_mania/presenter/view/tv/viewmodel/on_air_tv_view_model.dart';
+import 'package:movie_mania/presenter/view/tv/viewmodel/popular_tv_view_model.dart';
+import 'package:movie_mania/presenter/widgets/items/item_page.dart';
 
 class TvPage extends StatefulWidget {
   const TvPage({super.key});
@@ -26,7 +29,10 @@ class _TvPageState extends State<TvPage> with AutomaticKeepAliveClientMixin {
           ),
         ),
         body: const TabBarView(
-          children: [OnAirTvPage(), PopularTvPage()],
+          children: [
+            ItemPage<OnAirTvViewModel>(),
+            ItemPage<PopularTvViewModel>(),
+          ],
         ),
       ),
     );

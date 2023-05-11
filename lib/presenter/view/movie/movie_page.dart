@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_mania/presenter/view/now_playing_movies/now_playing_movie_page.dart';
-import 'package:movie_mania/presenter/view/popular_movies/popular_movie_page.dart';
+import 'package:movie_mania/presenter/view/movie/viewmodel/now_playing_movie_view_model.dart';
+import 'package:movie_mania/presenter/view/movie/viewmodel/popular_movie_view_model.dart';
+import 'package:movie_mania/presenter/widgets/items/item_page.dart';
 
 class MoviePage extends StatefulWidget {
   const MoviePage({super.key});
@@ -27,7 +28,10 @@ class _MoviePageState extends State<MoviePage>
           ),
         ),
         body: const TabBarView(
-          children: [NowPlayingMoviePage(), PopularMoviePage()],
+          children: [
+            ItemPage<NowPlayingMovieViewModel>(),
+            ItemPage<PopularMovieViewModel>(),
+          ],
         ),
       ),
     );

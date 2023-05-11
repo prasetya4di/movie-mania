@@ -19,11 +19,11 @@ import 'package:movie_mania/domain/usecases/impl/fetch_search_tvs_impl.dart';
 import 'package:movie_mania/domain/usecases/impl/fetch_tv_detail_impl.dart';
 import 'package:movie_mania/domain/usecases/impl/fetch_tv_on_the_air_impl.dart';
 import 'package:movie_mania/domain/usecases/impl/fetch_tv_recommendations_impl.dart';
+import 'package:movie_mania/presenter/view/movie/viewmodel/now_playing_movie_view_model.dart';
+import 'package:movie_mania/presenter/view/movie/viewmodel/popular_movie_view_model.dart';
 import 'package:movie_mania/presenter/view/movie_detail/movie_detail_view_model.dart';
-import 'package:movie_mania/presenter/view/now_playing_movies/now_playing_movie_view_model.dart';
-import 'package:movie_mania/presenter/view/on_air_tv/on_air_tv_view_model.dart';
-import 'package:movie_mania/presenter/view/popular_movies/popular_movie_view_model.dart';
-import 'package:movie_mania/presenter/view/popular_tv/popular_tv_view_model.dart';
+import 'package:movie_mania/presenter/view/tv/viewmodel/on_air_tv_view_model.dart';
+import 'package:movie_mania/presenter/view/tv/viewmodel/popular_tv_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
