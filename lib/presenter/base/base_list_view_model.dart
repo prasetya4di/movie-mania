@@ -16,10 +16,11 @@ abstract class BaseListViewModel<T> extends BaseViewModel {
   UnmodifiableListView<T> get listData => UnmodifiableListView(_listData);
 
   fetchFirstPage() async {
-    if (super.loading) return;
-    super.startLoading();
+    if (loading) return;
+    startLoading();
     page = 1;
     _listData.clear();
+    notifyListeners();
 
     await fetchData();
     super.finishLoading();
@@ -29,11 +30,11 @@ abstract class BaseListViewModel<T> extends BaseViewModel {
 
   fetchNextPage() async {
     if (totalPage == page) return;
-    if (super.loading) return;
+    if (loading) return;
     if (isLoadMore) return;
     isLoadMore = true;
-    notifyListeners();
     page++;
+    notifyListeners();
 
     await fetchData();
     isLoadMore = false;

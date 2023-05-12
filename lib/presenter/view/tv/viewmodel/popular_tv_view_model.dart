@@ -19,6 +19,8 @@ class PopularTvViewModel extends BaseListViewModel<ItemViewDataModel> {
       );
     }).then((value) {
       notifyListeners();
+    }).catchError((err) {
+      setThrowable(err);
     });
   }
 }

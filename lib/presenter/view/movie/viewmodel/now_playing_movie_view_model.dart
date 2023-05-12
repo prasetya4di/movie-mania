@@ -8,7 +8,7 @@ class NowPlayingMovieViewModel extends BaseListViewModel<ItemViewDataModel> {
   NowPlayingMovieViewModel(this._fetchNowPlayingMovies);
 
   @override
-  fetchData() {
+  fetchData() async {
     _fetchNowPlayingMovies(page).then((value) {
       value.fold(
         (failure) => setResponseError(failure),
@@ -19,6 +19,8 @@ class NowPlayingMovieViewModel extends BaseListViewModel<ItemViewDataModel> {
       );
     }).then((value) {
       notifyListeners();
+    }).catchError((err) {
+      setThrowable(err);
     });
   }
 }

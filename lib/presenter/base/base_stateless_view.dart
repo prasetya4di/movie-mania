@@ -11,8 +11,6 @@ abstract class BaseStatelessView<V extends BaseViewModel>
 
   Widget loadingView(BuildContext context);
 
-  bool get checkIsLoading => false;
-
   void pageErrorRetry(BuildContext context);
 
   @override
@@ -45,15 +43,12 @@ abstract class BaseStatelessView<V extends BaseViewModel>
   }
 
   Widget _createLoading() {
-    if (checkIsLoading) {
-      return Consumer<V>(builder: (context, data, _) {
-        if (data.loading) {
-          return loadingView(context);
-        }
+    return Consumer<V>(builder: (context, data, _) {
+      if (data.loading) {
+        return loadingView(context);
+      }
 
-        return const SizedBox();
-      });
-    }
-    return const SizedBox();
+      return const SizedBox();
+    });
   }
 }

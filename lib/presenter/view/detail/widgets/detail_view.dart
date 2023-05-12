@@ -63,7 +63,4 @@ class DetailView extends BaseStatelessView<DetailViewModel> {
   void pageErrorRetry(BuildContext context) {
     context.read<DetailViewModel>().retry();
   }
-
-  @override
-  bool get checkIsLoading => true;
 }

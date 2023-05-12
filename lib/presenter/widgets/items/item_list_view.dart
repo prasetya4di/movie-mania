@@ -42,7 +42,4 @@ class ItemListView<V extends BaseListViewModel<ItemViewDataModel>>
   void pageErrorRetry(BuildContext context) {
     context.read<V>().fetchFirstPage();
   }
-
-  @override
-  bool get checkIsLoading => true;
 }

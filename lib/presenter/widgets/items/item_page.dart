@@ -27,7 +27,9 @@ class _ItemPageState<V extends BaseListViewModel<ItemViewDataModel>>
         viewModel.fetchNextPage();
       }
     });
-    viewModel.fetchFirstPage();
+    WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) {
+      viewModel.fetchFirstPage();
+    });
   }
 
   @override
