@@ -13,7 +13,7 @@ class DetailRating extends StatelessWidget {
       child: Row(
         children: [
           RatingBarIndicator(
-            rating: rating > 5 ? rating / 2 : rating,
+            rating: rating / 2,
             itemBuilder: (context, index) => const Icon(
               Icons.star,
               color: Colors.amber,
