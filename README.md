@@ -17,5 +17,7 @@ A flutter project to find all the movie you'll love
 
 # Records
 ### Android
+https://github.com/prasetya4di/movie-mania/assets/84487845/6a33e3bd-a6f3-4105-b074-2412f7c94d66
+
 ### iOS
 https://github.com/prasetya4di/movie-mania/assets/84487845/0fa9ee24-0f77-4101-ba0f-a97895e21df8
