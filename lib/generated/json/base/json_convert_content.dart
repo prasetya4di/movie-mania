@@ -17,33 +17,26 @@ typedef JsonConvertFunction<T> = T Function(Map<String, dynamic> json);
 typedef EnumConvertFunction<T> = T Function(String value);
 
 class JsonConvert {
-  static final Map<String, JsonConvertFunction> convertFuncMap = {
-    (MovieDetailResponse).toString(): MovieDetailResponse.fromJson,
-    (MovieDetailResponseGenres).toString(): MovieDetailResponseGenres.fromJson,
-    (MovieDetailResponseProductionCompanies).toString():
-        MovieDetailResponseProductionCompanies.fromJson,
-    (MovieDetailResponseProductionCountries).toString():
-        MovieDetailResponseProductionCountries.fromJson,
-    (MovieDetailResponseSpokenLanguages).toString():
-        MovieDetailResponseSpokenLanguages.fromJson,
-    (MovieItemResponse).toString(): MovieItemResponse.fromJson,
-    (MoviesResponse).toString(): MoviesResponse.fromJson,
-    (ResponseError).toString(): ResponseError.fromJson,
-    (TvDetailResponse).toString(): TvDetailResponse.fromJson,
-    (TvDetailResponseGenres).toString(): TvDetailResponseGenres.fromJson,
-    (TvDetailResponseLastEpisodeToAir).toString():
-        TvDetailResponseLastEpisodeToAir.fromJson,
-    (TvDetailResponseNextEpisodeToAir).toString():
-        TvDetailResponseNextEpisodeToAir.fromJson,
-    (TvDetailResponseNetworks).toString(): TvDetailResponseNetworks.fromJson,
-    (TvDetailResponseProductionCountries).toString():
-        TvDetailResponseProductionCountries.fromJson,
-    (TvDetailResponseSeasons).toString(): TvDetailResponseSeasons.fromJson,
-    (TvDetailResponseSpokenLanguages).toString():
-        TvDetailResponseSpokenLanguages.fromJson,
-    (TvItemResponse).toString(): TvItemResponse.fromJson,
-    (TvsResponse).toString(): TvsResponse.fromJson,
-  };
+	static final Map<String, JsonConvertFunction> convertFuncMap = {
+		(MovieDetailResponse).toString(): MovieDetailResponse.fromJson,
+		(MovieDetailResponseGenres).toString(): MovieDetailResponseGenres.fromJson,
+		(MovieDetailResponseProductionCompanies).toString(): MovieDetailResponseProductionCompanies.fromJson,
+		(MovieDetailResponseProductionCountries).toString(): MovieDetailResponseProductionCountries.fromJson,
+		(MovieDetailResponseSpokenLanguages).toString(): MovieDetailResponseSpokenLanguages.fromJson,
+		(MovieItemResponse).toString(): MovieItemResponse.fromJson,
+		(MoviesResponse).toString(): MoviesResponse.fromJson,
+		(ResponseError).toString(): ResponseError.fromJson,
+		(TvDetailResponse).toString(): TvDetailResponse.fromJson,
+		(TvDetailResponseGenres).toString(): TvDetailResponseGenres.fromJson,
+		(TvDetailResponseLastEpisodeToAir).toString(): TvDetailResponseLastEpisodeToAir.fromJson,
+		(TvDetailResponseNextEpisodeToAir).toString(): TvDetailResponseNextEpisodeToAir.fromJson,
+		(TvDetailResponseNetworks).toString(): TvDetailResponseNetworks.fromJson,
+		(TvDetailResponseProductionCountries).toString(): TvDetailResponseProductionCountries.fromJson,
+		(TvDetailResponseSeasons).toString(): TvDetailResponseSeasons.fromJson,
+		(TvDetailResponseSpokenLanguages).toString(): TvDetailResponseSpokenLanguages.fromJson,
+		(TvItemResponse).toString(): TvItemResponse.fromJson,
+		(TvsResponse).toString(): TvsResponse.fromJson,
+	};
 
   T? convert<T>(dynamic value, {EnumConvertFunction? enumConvert}) {
     if (value == null) {
@@ -60,30 +53,24 @@ class JsonConvert {
     }
   }
 
-  List<T?>? convertList<T>(List<dynamic>? value,
-      {EnumConvertFunction? enumConvert}) {
+  List<T?>? convertList<T>(List<dynamic>? value, {EnumConvertFunction? enumConvert}) {
     if (value == null) {
       return null;
     }
     try {
-      return value
-          .map((dynamic e) => _asT<T>(e, enumConvert: enumConvert))
-          .toList();
+      return value.map((dynamic e) => _asT<T>(e,enumConvert: enumConvert)).toList();
     } catch (e, stackTrace) {
       debugPrint('asT<$T> $e $stackTrace');
       return <T>[];
     }
   }
 
-  List<T>? convertListNotNull<T>(dynamic value,
-      {EnumConvertFunction? enumConvert}) {
+List<T>? convertListNotNull<T>(dynamic value, {EnumConvertFunction? enumConvert}) {
     if (value == null) {
       return null;
     }
     try {
-      return (value as List<dynamic>)
-          .map((dynamic e) => _asT<T>(e, enumConvert: enumConvert)!)
-          .toList();
+      return (value as List<dynamic>).map((dynamic e) => _asT<T>(e,enumConvert: enumConvert)!).toList();
     } catch (e, stackTrace) {
       debugPrint('asT<$T> $e $stackTrace');
       return <T>[];
@@ -125,129 +112,73 @@ class JsonConvert {
     }
   }
 
-  //list is returned by type
-  static M? _getListChildType<M>(List<Map<String, dynamic>> data) {
-    if (<MovieDetailResponse>[] is M) {
-      return data
-          .map<MovieDetailResponse>(
-              (Map<String, dynamic> e) => MovieDetailResponse.fromJson(e))
-          .toList() as M;
-    }
-    if (<MovieDetailResponseGenres>[] is M) {
-      return data
-          .map<MovieDetailResponseGenres>(
-              (Map<String, dynamic> e) => MovieDetailResponseGenres.fromJson(e))
-          .toList() as M;
-    }
-    if (<MovieDetailResponseProductionCompanies>[] is M) {
-      return data
-          .map<MovieDetailResponseProductionCompanies>(
-              (Map<String, dynamic> e) =>
-                  MovieDetailResponseProductionCompanies.fromJson(e))
-          .toList() as M;
-    }
-    if (<MovieDetailResponseProductionCountries>[] is M) {
-      return data
-          .map<MovieDetailResponseProductionCountries>(
-              (Map<String, dynamic> e) =>
-                  MovieDetailResponseProductionCountries.fromJson(e))
-          .toList() as M;
-    }
-    if (<MovieDetailResponseSpokenLanguages>[] is M) {
-      return data
-          .map<MovieDetailResponseSpokenLanguages>((Map<String, dynamic> e) =>
-              MovieDetailResponseSpokenLanguages.fromJson(e))
-          .toList() as M;
-    }
-    if (<MovieItemResponse>[] is M) {
-      return data
-          .map<MovieItemResponse>(
-              (Map<String, dynamic> e) => MovieItemResponse.fromJson(e))
-          .toList() as M;
-    }
-    if (<MoviesResponse>[] is M) {
-      return data
-          .map<MoviesResponse>(
-              (Map<String, dynamic> e) => MoviesResponse.fromJson(e))
-          .toList() as M;
-    }
-    if (<ResponseError>[] is M) {
-      return data
-          .map<ResponseError>(
-              (Map<String, dynamic> e) => ResponseError.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvDetailResponse>[] is M) {
-      return data
-          .map<TvDetailResponse>(
-              (Map<String, dynamic> e) => TvDetailResponse.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvDetailResponseGenres>[] is M) {
-      return data
-          .map<TvDetailResponseGenres>(
-              (Map<String, dynamic> e) => TvDetailResponseGenres.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvDetailResponseLastEpisodeToAir>[] is M) {
-      return data
-          .map<TvDetailResponseLastEpisodeToAir>((Map<String, dynamic> e) =>
-              TvDetailResponseLastEpisodeToAir.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvDetailResponseNextEpisodeToAir>[] is M) {
-      return data
-          .map<TvDetailResponseNextEpisodeToAir>((Map<String, dynamic> e) =>
-              TvDetailResponseNextEpisodeToAir.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvDetailResponseNetworks>[] is M) {
-      return data
-          .map<TvDetailResponseNetworks>(
-              (Map<String, dynamic> e) => TvDetailResponseNetworks.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvDetailResponseProductionCountries>[] is M) {
-      return data
-          .map<TvDetailResponseProductionCountries>((Map<String, dynamic> e) =>
-              TvDetailResponseProductionCountries.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvDetailResponseSeasons>[] is M) {
-      return data
-          .map<TvDetailResponseSeasons>(
-              (Map<String, dynamic> e) => TvDetailResponseSeasons.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvDetailResponseSpokenLanguages>[] is M) {
-      return data
-          .map<TvDetailResponseSpokenLanguages>((Map<String, dynamic> e) =>
-              TvDetailResponseSpokenLanguages.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvItemResponse>[] is M) {
-      return data
-          .map<TvItemResponse>(
-              (Map<String, dynamic> e) => TvItemResponse.fromJson(e))
-          .toList() as M;
-    }
-    if (<TvsResponse>[] is M) {
-      return data
-          .map<TvsResponse>((Map<String, dynamic> e) => TvsResponse.fromJson(e))
-          .toList() as M;
-    }
+	//list is returned by type
+	static M? _getListChildType<M>(List<Map<String, dynamic>> data) {
+		if(<MovieDetailResponse>[] is M){
+			return data.map<MovieDetailResponse>((Map<String, dynamic> e) => MovieDetailResponse.fromJson(e)).toList() as M;
+		}
+		if(<MovieDetailResponseGenres>[] is M){
+			return data.map<MovieDetailResponseGenres>((Map<String, dynamic> e) => MovieDetailResponseGenres.fromJson(e)).toList() as M;
+		}
+		if(<MovieDetailResponseProductionCompanies>[] is M){
+			return data.map<MovieDetailResponseProductionCompanies>((Map<String, dynamic> e) => MovieDetailResponseProductionCompanies.fromJson(e)).toList() as M;
+		}
+		if(<MovieDetailResponseProductionCountries>[] is M){
+			return data.map<MovieDetailResponseProductionCountries>((Map<String, dynamic> e) => MovieDetailResponseProductionCountries.fromJson(e)).toList() as M;
+		}
+		if(<MovieDetailResponseSpokenLanguages>[] is M){
+			return data.map<MovieDetailResponseSpokenLanguages>((Map<String, dynamic> e) => MovieDetailResponseSpokenLanguages.fromJson(e)).toList() as M;
+		}
+		if(<MovieItemResponse>[] is M){
+			return data.map<MovieItemResponse>((Map<String, dynamic> e) => MovieItemResponse.fromJson(e)).toList() as M;
+		}
+		if(<MoviesResponse>[] is M){
+			return data.map<MoviesResponse>((Map<String, dynamic> e) => MoviesResponse.fromJson(e)).toList() as M;
+		}
+		if(<ResponseError>[] is M){
+			return data.map<ResponseError>((Map<String, dynamic> e) => ResponseError.fromJson(e)).toList() as M;
+		}
+		if(<TvDetailResponse>[] is M){
+			return data.map<TvDetailResponse>((Map<String, dynamic> e) => TvDetailResponse.fromJson(e)).toList() as M;
+		}
+		if(<TvDetailResponseGenres>[] is M){
+			return data.map<TvDetailResponseGenres>((Map<String, dynamic> e) => TvDetailResponseGenres.fromJson(e)).toList() as M;
+		}
+		if(<TvDetailResponseLastEpisodeToAir>[] is M){
+			return data.map<TvDetailResponseLastEpisodeToAir>((Map<String, dynamic> e) => TvDetailResponseLastEpisodeToAir.fromJson(e)).toList() as M;
+		}
+		if(<TvDetailResponseNextEpisodeToAir>[] is M){
+			return data.map<TvDetailResponseNextEpisodeToAir>((Map<String, dynamic> e) => TvDetailResponseNextEpisodeToAir.fromJson(e)).toList() as M;
+		}
+		if(<TvDetailResponseNetworks>[] is M){
+			return data.map<TvDetailResponseNetworks>((Map<String, dynamic> e) => TvDetailResponseNetworks.fromJson(e)).toList() as M;
+		}
+		if(<TvDetailResponseProductionCountries>[] is M){
+			return data.map<TvDetailResponseProductionCountries>((Map<String, dynamic> e) => TvDetailResponseProductionCountries.fromJson(e)).toList() as M;
+		}
+		if(<TvDetailResponseSeasons>[] is M){
+			return data.map<TvDetailResponseSeasons>((Map<String, dynamic> e) => TvDetailResponseSeasons.fromJson(e)).toList() as M;
+		}
+		if(<TvDetailResponseSpokenLanguages>[] is M){
+			return data.map<TvDetailResponseSpokenLanguages>((Map<String, dynamic> e) => TvDetailResponseSpokenLanguages.fromJson(e)).toList() as M;
+		}
+		if(<TvItemResponse>[] is M){
+			return data.map<TvItemResponse>((Map<String, dynamic> e) => TvItemResponse.fromJson(e)).toList() as M;
+		}
+		if(<TvsResponse>[] is M){
+			return data.map<TvsResponse>((Map<String, dynamic> e) => TvsResponse.fromJson(e)).toList() as M;
+		}
 
-    debugPrint("${M.toString()} not found");
+		debugPrint("${M.toString()} not found");
+	
+		return null;
+}
 
-    return null;
-  }
-
-  static M? fromJsonAsT<M>(dynamic json) {
-    if (json is List) {
-      return _getListChildType<M>(
-          json.map((e) => e as Map<String, dynamic>).toList());
-    } else {
-      return jsonConvert.convert<M>(json);
-    }
-  }
+	static M? fromJsonAsT<M>(dynamic json) {
+		if (json is List) {
+			return _getListChildType<M>(json.map((e) => e as Map<String, dynamic>).toList());
+		} else {
+			return jsonConvert.convert<M>(json);
+		}
+	}
 }
