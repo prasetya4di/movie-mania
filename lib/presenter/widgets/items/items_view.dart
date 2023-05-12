@@ -16,7 +16,7 @@ class ItemsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: 0.68,
+        childAspectRatio: 17 / 25,
         crossAxisCount: 2,
       ),
       shrinkWrap: true,

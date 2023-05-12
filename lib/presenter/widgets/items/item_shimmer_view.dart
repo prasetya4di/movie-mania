@@ -9,11 +9,13 @@ class ItemShimmerView extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: Colors.grey.shade500,
       highlightColor: Colors.grey.shade300,
-      child: Container(
-        height: 300,
-        decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(6))),
+      child: AspectRatio(
+        aspectRatio: 17 / 25,
+        child: Container(
+          decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(6))),
+        ),
       ),
     );
   }
