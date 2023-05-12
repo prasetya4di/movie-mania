@@ -16,6 +16,6 @@ A flutter project to find all the movie you'll love
 -  [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons): ^0.12.0
 
 # Records
-| Android | iOS |
-|-----|-----|
-|![video-android](https://github.com/prasetya4di/movie-mania/assets/84487845/0fa9ee24-0f77-4101-ba0f-a97895e21df8)|[video-ios](https://github.com/prasetya4di/movie-mania/assets/84487845/0fa9ee24-0f77-4101-ba0f-a97895e21df8)|
+### Android
+### iOS
+https://github.com/prasetya4di/movie-mania/assets/84487845/0fa9ee24-0f77-4101-ba0f-a97895e21df8
